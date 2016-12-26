@@ -1,0 +1,11 @@
+<%= javascript_include_tag 'land/index.js' %>
+<div>
+  <span>用户名:</span>
+  <input id="user_name" type="text" name="user" />
+  <br>
+  <span>密 码:</span>
+  <input id="pad" type="password" name="password" />
+  <br>
+  <input type="button" onclick="land()" value="登录"/>
+  <button onclick="jump_page('/land/register')">注册</button>
+</div>

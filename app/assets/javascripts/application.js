@@ -14,3 +14,37 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function post_ajax(url, data, suc_fun, err_fun) {
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: data,
+        success: function (data) {
+            suc_fun(data)
+        },
+        error: function () {
+            err_fun()
+        }
+    })
+}
+
+function get_ajax(url,data,suc_fun,err_fun){
+    $.ajax({
+        url: url,
+        method: 'GET',
+        data: data,
+        success: function (data) {
+            suc_fun(data)
+        },
+        error: function () {
+            err_fun()
+        }
+    })
+}
+
+function jump_page(url){
+    window.location.href = window.location.protocol + '//' + window.location.host + url;
+}
+

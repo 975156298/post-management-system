@@ -1,0 +1,17 @@
+<%= javascript_include_tag 'land/index.js' %>
+<div>
+  <span>用户名:</span>
+  <input id="user" type="text" />
+  <br/>
+  <span>密码:</span>
+  <input id="password" type="password" />
+  <br/>
+  <span>确认密码:</span>
+  <input id="repeat_password" type="password"/>
+  <br/>
+  <span>邮箱:</span>
+  <input id="email" type="email" />
+  <br/>
+  <button id="submit" onclick="save_user_info()">确认注册</button>
+  <button onclick="jump_page('/')">取消</button>
+</div>
