@@ -1,0 +1,88 @@
+.user_information_main{
+    text-align: center;
+
+}
+.user_information_control{
+    display:inline-block;
+    border: 1px solid #2E2F30;
+    width: 500px;
+}
+
+.tags{
+    text-align: left;
+    border-bottom: 1px solid #1936ed;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+
+}
+.tag{
+    margin-left: 20px;
+}
+.image_width{
+    float: right;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+}
+.image_width span{
+    float: right;
+    margin-right: 5px;
+}
+.right_image{
+    width: 15px;
+    height: 25px;
+    float: right;
+    margin-top: 12.5px;
+    margin-right: 20px;
+}
+.confirm_button{
+    width: 100%;
+    line-height: 50px;
+    background-color: #1936ed;
+    margin: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    border: 0;
+}
+.bottom{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #CCCCCC;
+}
+.bottom button{
+    width: 80px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 0;
+    height: 30px;
+    background-color: #65B5C5;
+    color: #ffffff;
+}
+
+.title{
+    padding: 10px 0;
+}
+.title p{
+    margin: 0;
+    padding: 10px 0;
+    color: #65B5C5;
+    line-height: 30px;
+}
+
+.hobby-tags{
+    border-top: 1px dashed #CCCCCC;
+}
+.hobby-tag{
+    /*width: 100px;*/
+    height: 40px;
+    line-height: 40px;
+    /*padding: 0 10px;*/
+    border: 1px solid #666666;
+    margin: 0 10px;
+
+}

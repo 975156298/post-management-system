@@ -11,24 +11,26 @@ function save_user_info(){
     console.log(email);
     if(user_name == '' || password == '' || repeat_password == '' || email == ''){
         status = false;
-        alert('注册信息填写不完整')
-    }
-    if(password == repeat_password && status){
-        var url = 'http://localhost:3000/land/set_register_info';
-        var data = {
-            'user' : user_name,
-            'password' : password,
-            'email' : email
-        };
-        post_ajax(url, data,
-            function(data){
-                console.log(data);
-            },
-            function(){
-                console.log('error')
-            });
-    }else{
-        alert('密码不一致')
+        show_warn_model('注册信息填写不完整','true')
+    }else
+    {
+        if(password == repeat_password && status){
+            var url = 'land/set_register_info';
+            var data = {
+                'user' : user_name,
+                'password' : password,
+                'email' : email
+            };
+            post_ajax(url, data,
+                function(data){
+                    show_warn_model('注册成功')
+                },
+                function(err){
+                    console.log(err)
+                });
+        }else{
+            show_warn_model('密码不一致','true')
+        }
     }
 }
 
@@ -40,10 +42,13 @@ function land(){
     };
     get_ajax(url,data,
         function(data){
-            if(data.status == 'success') jump_page('/main/index');
+            if(data.status == 'success'){
+                show_warn_model('登录成功')
+                jump_page('/');
+            }
         },
         function(){
-            alert('用户名不存在')
+            show_warn_model('用户名不存在','true')
         })
 }
 

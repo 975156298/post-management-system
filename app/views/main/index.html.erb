@@ -1,1 +1,13 @@
-<p>sadas</p>
+<%= javascript_include_tag 'note' %>
+<%= render "main/head" %>
+
+<button onclick="jump_page('/note_info/index')"> note_info</button>
+<button onclick="jump_page('/note_info/get_note')"> note_info</button>
+
+<% @get_notes.each do |get_note| %>
+    <div class="" onclick="get_note_id(<%= get_note.id %>)">
+      <p><%= get_note.content %></p>
+      <img src="<%= get_note.note_photo %>">
+      <button onclick="delete_note(<%= get_note.id %>)">shanchu</button>
+    </div>
+<% end %>

@@ -1,11 +1,22 @@
 <%= javascript_include_tag 'land/index.js' %>
-<div>
-  <span>用户名:</span>
-  <input id="user_name" type="text" name="user" />
-  <br>
-  <span>密 码:</span>
-  <input id="pad" type="password" name="password" />
-  <br>
-  <input type="button" onclick="land()" value="登录"/>
-  <button onclick="jump_page('/land/register')">注册</button>
+<%= stylesheet_link_tag 'land/index.css' %>
+<body class="body">
+<div class="land_main">
+  <div class="land_local">
+    <div class="land_input">
+      <span>用户名:</span>
+      <input id="user_name" type="text" name="user" />
+      <br>
+    </div>
+    <div class="land_input">
+      <span>密 码:</span>
+      <input id="pad" type="password" name="password" />
+      <br>
+    </div>
+    <div class="land_input">
+      <button onclick="land()">登录</button>
+      <button onclick="jump_page('/land/register')">注册</button>
+    </div>
+  </div>
 </div>
+</body>

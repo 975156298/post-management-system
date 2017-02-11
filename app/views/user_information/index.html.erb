@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag 'user_informations/user_information.css' %>
+<body class="user_information_main">
+<div id="user_info_list" class="user_information_control">
+  <div>
+    <span>基本信息</span>
+  </div>
+  <div class="tags">
+    <div class="tag">
+      <span>性别</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">
+      <span>生日</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width" onclick="get_hobby()">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="hobby"></span>
+    </div>
+    <div class="tag">
+      <span>爱好</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span >学历</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span>身高</span>
+    </div>
+
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span>工作</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span>地址</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span>星座</span>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="image_width">
+      <%= image_tag "arrow_right",:class => 'right_image' %>
+    </div>
+    <div class="tag">
+      <span>电话</span>
+    </div>
+  </div>
+  <button class="confirm_button" onclick="set_user_information()">保存信息</button>
+</div>
+
+<%= render 'user_information/hobby' %>
+</body>

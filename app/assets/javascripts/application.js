@@ -13,19 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+
 
 
 function post_ajax(url, data, suc_fun, err_fun) {
     $.ajax({
-        url: url,
+        url: "http://localhost:3000/"+url,
         method: 'POST',
         data: data,
         success: function (data) {
             suc_fun(data)
         },
-        error: function () {
-            err_fun()
+        error: function (err) {
+            err_fun(err)
         }
     })
 }
@@ -48,3 +48,15 @@ function jump_page(url){
     window.location.href = window.location.protocol + '//' + window.location.host + url;
 }
 
+function show_warn_model(message,is_wait) {
+    $('body').append("<div class='warning-model'><div class='warning'>" + message + "</div></div>");
+    if(is_wait == 'true'){
+        setTimeout(function(){
+            $('.warning-model').remove()
+        },1000)
+    }
+}
+
+function remove_model(){
+    $('.warning-model').remove()
+}

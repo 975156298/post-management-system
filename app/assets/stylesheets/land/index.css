@@ -1,0 +1,36 @@
+.body{
+    background-color: #4393ed;
+    font-size: 16px;
+    color: #ffffff;
+}
+.land_main{
+    text-align: center;
+    margin: 100px;
+}
+.land_local{
+    border: 1px solid #1936ed;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    display:inline-block;
+    padding-top: 40px;
+    background: url("../land_back") no-repeat;
+    background-size: 500px 240px;
+}
+
+.land_input{
+    float: right;
+    padding-right: 150px;
+    padding-bottom: 20px;
+}
+.land_input button{
+    width: 70px;
+    height: 30px;
+    margin-right: 30px;
+    border-radius: 7px;
+    background-color: #65B5C5;
+    color: #ffffff;
+    font-size: 16px;
+    border: 0;
+    padding: 0;
+}

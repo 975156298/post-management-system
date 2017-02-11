@@ -1,0 +1,6 @@
+
+<%= form_tag 'add_note', :multipart => true do%>
+    <%= text_field_tag :text %>
+    <%= file_field_tag :localfile %>
+    <%= submit_tag "上传"%>
+<% end %>
