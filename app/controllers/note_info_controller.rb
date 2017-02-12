@@ -4,10 +4,7 @@ class NoteInfoController < ApplicationController
   end
 
   def get_note
-    p '==============id=='
-    p params[:note_id]
-    @get_note = NoteInfo.find_by_id(params[:note_id])
-    render '/note_info/get_note'
+    @get_note = NoteInfo.find_by_id(cookies[:note_id])
   end
 
   def add_note

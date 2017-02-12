@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - make_friend@localhost" uuid="0fc1ecf1-cfb9-469f-87eb-52f2e43beec0">
+    <data-source name="MySQL - make_friend@localhost [2]" uuid="e1182009-3d92-4538-a6dd-78f35cf0f38f">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-pattern>make_friend.*</schema-pattern>
       <default-schemas>make_friend.*</default-schemas>
-    </data-source>
-    <data-source name="MySQL - @localhost" uuid="ed8e6ed2-0162-4085-8600-4a2c96a85ef7">
-      <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
     </data-source>
   </component>
 </project>

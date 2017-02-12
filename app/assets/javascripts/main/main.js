@@ -12,3 +12,8 @@ function delete_note(id){
         }
     )
 }
+
+function get_note_id(id){
+    document.cookie = "note_id=" + id
+    jump_page('/note_info/get_note')
+}

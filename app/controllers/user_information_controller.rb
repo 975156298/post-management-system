@@ -12,6 +12,10 @@ class UserInformationController < ApplicationController
     render :json => {status: 'sss'}
   end
 
+  def delete_user
+    UserInformation.find_by_user('zhuxuey').delete
+  end
+
   private
 
    def update_info
