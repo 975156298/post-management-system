@@ -21,7 +21,7 @@
 }
 .image_width{
     float: right;
-    width: 180px;
+    width: 280px;
     height: 50px;
     line-height: 50px;
 }
@@ -85,4 +85,11 @@
     border: 1px solid #666666;
     margin: 0 10px;
 
+}
+
+.title_style{
+    line-height: 60px;
+    border-bottom: 2px solid #65B5C5;
+    font-size: 20px;
+    color: #2aedd2;
 }

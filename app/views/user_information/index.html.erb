@@ -1,8 +1,14 @@
 <%= stylesheet_link_tag 'user_informations/user_information.css' %>
+<%= javascript_include_tag "user_informations/user_information.js" %>
 <body class="user_information_main">
 <div id="user_info_list" class="user_information_control">
   <div>
     <span>基本信息</span>
+  </div>
+  <div class="tags">
+    <div class="tag">
+      <span>名字</span>
+    </div>
   </div>
   <div class="tags">
     <div class="tag">
@@ -12,6 +18,7 @@
   <div class="tags">
     <div class="tag">
       <span>生日</span>
+      <input style="float: right;margin-top: 14px;" id="date_birth" type="date" />
     </div>
   </div>
   <div class="tags">
@@ -24,16 +31,18 @@
     </div>
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_degree()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="degree"></span>
     </div>
     <div class="tag">
       <span >学历</span>
     </div>
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_height()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="height"></span>
     </div>
     <div class="tag">
       <span>身高</span>
@@ -41,32 +50,36 @@
 
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_work()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="work"></span>
     </div>
     <div class="tag">
       <span>工作</span>
     </div>
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_address()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="address"></span>
     </div>
     <div class="tag">
       <span>地址</span>
     </div>
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_star()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="star"></span>
     </div>
     <div class="tag">
       <span>星座</span>
     </div>
   </div>
   <div class="tags">
-    <div class="image_width">
+    <div class="image_width" onclick="get_photo()">
       <%= image_tag "arrow_right",:class => 'right_image' %>
+      <span id="photo"></span>
     </div>
     <div class="tag">
       <span>电话</span>
@@ -75,5 +88,11 @@
   <button class="confirm_button" onclick="set_user_information()">保存信息</button>
 </div>
 
+<%= render 'user_information/address' %>
+<%= render 'user_information/degree' %>
+<%= render 'user_information/height' %>
 <%= render 'user_information/hobby' %>
+<%= render 'user_information/photo' %>
+<%= render 'user_information/star' %>
+<%= render 'user_information/work' %>
 </body>

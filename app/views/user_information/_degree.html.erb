@@ -1,0 +1,11 @@
+<div id="degree_list" class="user_information_control" style="display: none;height:600px">
+  <div id="degree_info">
+    <div class="title_style">
+      <span >学历</span>
+    </div>
+    <% @degree_infos.each_with_index do |degree,index| %>
+    <div id="degree-<%= index %>" onclick="get_degree_info(<%= index %>)"><%= degree %></div>
+    <% end %>
+    <button onclick="set_degree()">确定</button>
+  </div>
+</div>

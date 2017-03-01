@@ -1,0 +1,11 @@
+<div id="height_list" class="user_information_control" style="display: none;height:600px">
+  <div id="height_info">
+    <div class="title_style">
+      <span >身高</span>
+    </div>
+    <% @height_infos.each_with_index do |height,index| %>
+        <div id="height-<%= index %>" onclick="get_height_info(<%= index %>)"><%= height %></div>
+    <% end %>
+    <button onclick="set_height()">确定</button>
+  </div>
+</div>

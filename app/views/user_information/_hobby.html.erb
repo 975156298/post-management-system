@@ -3,6 +3,12 @@
     <button onclick="set_hobby()">确定</button>
   </div>
   <div id="hobby_info">
+    <% @hobby_infos.each do |hobby_info| %>
+        <h3><%= hobby_info[:kind] %></h3>
+        <% hobby_info[:tastes].each_with_index do |taste,index| %>
+            <span id="hobby-<%= hobby_info[:kind] %>-<%= index %>" onclick="get_hobby_info('<%= hobby_info[:kind] %>',<%= index %>)"><%= taste %></span>
+        <% end %>
 
+    <% end %>
   </div>
 </div>

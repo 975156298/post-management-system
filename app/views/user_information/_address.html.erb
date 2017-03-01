@@ -1,0 +1,13 @@
+<div id="address_list" class="user_information_control" style="display:none">
+  <div class="bottom">
+    <button onclick="set_address()">确定</button>
+  </div>
+  <div id="address_info">
+    <% @address_infos.each do |address_info| %>
+        <h3><%= address_info[:province] %></h3>
+        <% address_info[:address].each_with_index do |address,index| %>
+            <span id="address-<%= address_info[:province] %>-<%= index %>" onclick="get_address_info('<%= address_info[:province] %>',<%= index %>)"><%= address %></span>
+        <% end %>
+    <% end %>
+  </div>
+</div>

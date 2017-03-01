@@ -1,0 +1,11 @@
+<div id="star_list" class="user_information_control" style="display: none;height:600px">
+  <div id="star_info">
+    <div class="title_style">
+      <span >学历</span>
+    </div>
+    <% @star_infos.each_with_index do |star,index| %>
+        <div id="star-<%= index %>" onclick="get_star_info(<%= index %>)"><%= star %></div>
+    <% end %>
+    <button onclick="set_star()">确定</button>
+  </div>
+</div>

@@ -43,7 +43,7 @@ function land(){
     get_ajax(url,data,
         function(data){
             if(data.status == 'success'){
-                show_warn_model('登录成功')
+                show_warn_model('登录成功');
                 jump_page('/');
             }
         },

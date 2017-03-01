@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'user_information/index'
   get 'user_information/delete_user'
+  get "user_information/get_user_info"
   post 'user_information/update' => 'user_information#update'
 
 
