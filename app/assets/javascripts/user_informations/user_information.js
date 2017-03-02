@@ -22,21 +22,27 @@ function set_info(){
             if(data.date.sex != null && data.date.sex != ''){
                 $('#sex').text(data.date.sex)
             }
+            if(data.date.height != null && data.date.height != ''){
+                $('#height').text(data.date.height)
+            }
+            if(data.date.hobby != null && data.date.hobby != ''){
+                $('#hobby').text(data.date.hobby)
+            }
+            if(data.date.degree != null && data.date.degree != ''){
+                $('#degree').text(data.date.degree)
+            }
+            if(data.date.work != null && data.date.work != ''){
+                $('#work').text(data.date.work)
+            }
+            if(data.date.star != null && data.date.star != ''){
+                $('#star').text(data.date.star)
+            }
+            if(data.date.address != null && data.date.address != ''){
+                $('#address').text(data.date.address)
+            }
     },
         function(){}
     );
-    var address = sessionStorage.getItem("address");
-    var degree = sessionStorage.getItem("degree");
-    var height = sessionStorage.getItem("height");
-    var hobbys = sessionStorage.getItem("hobbys");
-    var star = sessionStorage.getItem("star");
-    var work = sessionStorage.getItem("work");
-    $('#address').text(address);
-    $('#degree').text(degree);
-    $('#height').text(height);
-    $('#hobby').text(hobbys);
-    $('#star').text(star);
-    $('#work').text(work);
 }
 
 function set_user_information(){
