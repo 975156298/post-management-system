@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
       redirect_to 'land/index'
     end
   end
+
   def get_user
     @user = UserInformation.find_by_user(cookies[:user])
   end

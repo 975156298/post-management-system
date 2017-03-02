@@ -1,6 +1,5 @@
 class NoteInfoController < ApplicationController
   def index
-
   end
 
   def get_note
@@ -39,4 +38,6 @@ class NoteInfoController < ApplicationController
     NoteInfo.find_by_id(params[:note_id]).delete
   end
 
+  def user_note
+  end
 end

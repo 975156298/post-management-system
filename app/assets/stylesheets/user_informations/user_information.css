@@ -65,13 +65,14 @@
 }
 
 .title{
-    padding: 10px 0;
+
 }
-.title p{
-    margin: 0;
-    padding: 10px 0;
-    color: #65B5C5;
-    line-height: 30px;
+
+.border{
+    border: 1px solid #65B5C5;
+    margin-left: 5px;
+    padding: 5px 25px;
+    line-height: 40px
 }
 
 .hobby-tags{
@@ -93,3 +94,5 @@
     font-size: 20px;
     color: #2aedd2;
 }
+
+

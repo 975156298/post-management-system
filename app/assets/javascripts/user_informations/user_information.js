@@ -8,20 +8,29 @@ function set_info(){
     get_ajax('/user_information/get_user_info','',
         function(data){
             console.log(data);
-            console.log(data.date.birthday_time.slice(0,10));
-            $("#date_birth").attr("value",data.birthday_time);
+            if(data.date.birthday_time != null && data.date.birthday_time != ''){
+                $('#date_birth').text(data.date.birthday_time.slice(0,10));
+            }else{
+                $('#date_birth').text('1995-07-15');
+            }
+            if(data.date.name != null && data.date.name != ''){
+                $('#name').text(data.date.name)
+            }
+            if(data.date.contact != null && data.date.contact != ''){
+                $('#photo').text(data.date.contact)
+            }
+            if(data.date.sex != null && data.date.sex != ''){
+                $('#sex').text(data.date.sex)
+            }
     },
-        function(){
-
-        }
-    )
+        function(){}
+    );
     var address = sessionStorage.getItem("address");
     var degree = sessionStorage.getItem("degree");
     var height = sessionStorage.getItem("height");
     var hobbys = sessionStorage.getItem("hobbys");
     var star = sessionStorage.getItem("star");
     var work = sessionStorage.getItem("work");
-    //;
     $('#address').text(address);
     $('#degree').text(degree);
     $('#height').text(height);
@@ -33,13 +42,13 @@ function set_info(){
 function set_user_information(){
     var url = 'user_information/update';
     var data = {
-        'sex':'nv',
-        'birthday_time':$('#date_birth').val(),
-        'name':'',
+        'sex':$('#sex').text(),
+        'birthday_time':$('#date').val(),
+        'name': $('#name').text(),
         'height':sessionStorage.getItem("height"),
         'star':sessionStorage.getItem("star"),
         'work':sessionStorage.getItem("work"),
-        'phone':'',
+        'phone':$('#photo').text(),
         'address':sessionStorage.getItem("address"),
         'degree':sessionStorage.getItem("degree"),
         'hobby':sessionStorage.getItem("hobbys")
@@ -52,6 +61,40 @@ function set_user_information(){
         function(err){
             console.log('=======shib===========')
     }
+}
+
+function set_name(){
+    $("#input_name").val($('#name').text())
+    $('#input_name').show();
+    $('#name').hide()
+}
+
+function get_name(val){
+    if(val == ''){
+        show_warn_model('数据为空，请输入name','true');
+    }else{
+        $('#name').text(val);
+        $('#name').show();
+        $('#input_name').hide()
+    }
+}
+
+function set_sex(){
+    $('#sex').hide();
+    $('#sex_list').show();
+}
+
+function get_sex(val){
+    $('#sex').text(val);
+    $('#sex').show();
+    $('#sex_list').hide();
+}
+
+function set_date(){
+    //$("#date").attr("value",$('#date_birth').text());
+    $('#date').val($('#date_birth').text());
+    $('#date_birth').hide();
+    $('#date').show();
 }
 
 function get_hobby_info(kind,id){
@@ -198,9 +241,20 @@ function set_star(){
     $('#star').text(star);
 }
 
-function get_photo(){
-    $('#user_info_list').hide();
+function set_photo(){
+    $('#photo').hide();
+    $('#input_photo').val( $('#photo').text());
+    $('#input_photo').show();
+}
 
+function get_photo(val){
+    if(val == ''){
+        show_warn_model('请输入电话','true')
+    }else{
+        $('#photo').text(val);
+        $('#photo').show();
+        $('#input_photo').hide();
+    }
 }
 
 

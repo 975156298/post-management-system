@@ -3,9 +3,14 @@
     <div class="title_style">
       <span >身高</span>
     </div>
-    <% @height_infos.each_with_index do |height,index| %>
-        <div id="height-<%= index %>" onclick="get_height_info(<%= index %>)"><%= height %></div>
-    <% end %>
-    <button onclick="set_height()">确定</button>
+    <div style="margin-top: 20px">
+      <% @height_infos.each_with_index do |height,index| %>
+          <span style="" class="border" id="height-<%= index %>" onclick="get_height_info(<%= index %>)"><%= height %></span>
+      <% end %>
+    </div>
+    <div style="text-align: initial">
+      <button style="margin-left: 170px;position: fixed;bottom: 60px;width: 140px;line-height: 30px;background-color: #2ab7ed" class="confirm_button"  onclick="set_height()">确定</button>
+    </div>
+    <!--<button onclick="set_height()">确定</button>-->
   </div>
 </div>

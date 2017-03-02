@@ -3,9 +3,15 @@
     <div class="title_style">
       <span >学历</span>
     </div>
-    <% @star_infos.each_with_index do |star,index| %>
-        <div id="star-<%= index %>" onclick="get_star_info(<%= index %>)"><%= star %></div>
-    <% end %>
-    <button onclick="set_star()">确定</button>
+
+
+    <div style="margin: 20px">
+      <% @star_infos.each_with_index do |star,index| %>
+          <span class="border" id="star-<%= index %>" onclick="get_star_info(<%= index %>)"><%= star %></span>
+      <% end %>
+    </div>
+    <div style="text-align: initial">
+      <button style="background-color: #2ab7ed;margin-left: 170px;position: fixed;bottom: 60px;width: 140px;line-height: 30px;" class="confirm_button"  onclick="set_star()">确定</button>
+    </div>
   </div>
 </div>

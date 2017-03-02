@@ -43,6 +43,8 @@ function land(){
     get_ajax(url,data,
         function(data){
             if(data.status == 'success'){
+                //$('#land_success').text('退出');
+                //alert( $('#land_success').text())
                 show_warn_model('登录成功');
                 jump_page('/');
             }

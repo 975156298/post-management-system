@@ -3,9 +3,13 @@
     <div class="title_style">
       <span >学历</span>
     </div>
-    <% @degree_infos.each_with_index do |degree,index| %>
-    <div id="degree-<%= index %>" onclick="get_degree_info(<%= index %>)"><%= degree %></div>
-    <% end %>
-    <button onclick="set_degree()">确定</button>
+    <div style="margin-top: 20px">
+      <% @degree_infos.each_with_index do |degree,index| %>
+          <span style="padding: 5px;" class="border" id="degree-<%= index %>" onclick="get_degree_info(<%= index %>)"><%= degree %></span>
+      <% end %>
+    </div>
+    <div style="text-align: initial">
+      <button style="background-color: #2ab7ed;margin-left: 170px;position: fixed;bottom: 60px;width: 140px;line-height: 30px;" class="confirm_button"  onclick="set_degree()">确定</button>
+    </div>
   </div>
 </div>

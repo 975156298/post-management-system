@@ -1,13 +1,14 @@
 <div id="work_list" class="user_information_control" style="display:none">
-  <div class="bottom">
-    <button onclick="set_work()">确定</button>
-  </div>
-  <div id="work_info">
+  <div style="margin: 20px 20px 60px 20px;" id="work_info">
     <% @work_infos.each do |work_info| %>
         <h3><%= work_info[:kind] %></h3>
         <% work_info[:work].each_with_index do |work,index| %>
-            <span id="work-<%= work_info[:kind] %>-<%= index %>" onclick="get_work_info('<%= work_info[:kind] %>',<%= index %>)"><%= work %></span>
+            <span class="border" id="work-<%= work_info[:kind] %>-<%= index %>" onclick="get_work_info('<%= work_info[:kind] %>',<%= index %>)"><%= work %></span>
         <% end %>
     <% end %>
+  </div>
+
+  <div style="text-align: initial">
+    <button style="position: fixed;bottom: 0;width: 500px;background-color: #2ab7ed;" class="confirm_button" onclick="set_work()">确定</button>
   </div>
 </div>
