@@ -66,3 +66,12 @@ body{
     background-color: black;
     color: #ffffff;
 }
+
+.currency_frame{
+    display:inline-block;
+    width: 500px;
+}
+
+.main_background{
+    background-image: url('/72019_bg.jpg');
+}

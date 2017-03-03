@@ -1,3 +1,49 @@
+<%= stylesheet_link_tag 'user_center/user_center.css' %>
+<%= javascript_include_tag "user_center/user_center.js" %>
+
 <%= render "main/head" %>
 
-<button onclick="jump_page('/user_information/index')">tiaoz</button>
+<body class="main_background">
+<div style="text-align: center">
+  <div class="currency_frame">
+    <div class="head">
+      <span style="font-size: 28px;">个人中心</span>
+    </div>
+    <div class="block_frame">
+      <img  src="" class="head_image">
+      <div onclick="jump_page('/user_information/index')">
+        <div class="left">
+          <span style="font-size: 28px;"><%= @user_info[:name] %></span>
+          <span class="font-color"><%= @user_info[:sex] %></span>
+          <span class="font-color"><%= @user_info[:age] %></span>
+          <span class="font-color"><%= @user_info[:height] %></span>
+        </div>
+        <div class="left">
+          <span class="font-color"><%= @user_info[:degree] %></span>
+          <span class="font-color"><%= @user_info[:star] %></span>
+          <span class="font-color"><%= @user_info[:work] %></span>
+          <span class="font-color"><%= @user_info[:address] %></span>
+        </div>
+      </div>
+    </div>
+    <div class="block_frame">
+      <span class="left margin-left-20" >兴趣爱好:</span><br/>
+      <span class="left font-color"><%= @user_info[:hobby] %></span>
+    </div>
+    <div class="block_frame" style="height: 50px;">
+      <div onclick="jump_page('/user_information/index')">
+        <%= image_tag "arrow_right",:class => 'right_image1' %>
+      </div>
+      <span class="left margin-left-20">评论提醒</span>
+    </div>
+    <div class="block_frame" style="height: 50px;">
+      <span class="left margin-left-20">相册</span>
+    </div>
+
+    <div>
+      <img src="">
+
+    </div>
+  </div>
+</div>
+</body>
