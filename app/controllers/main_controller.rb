@@ -2,6 +2,9 @@ class MainController < ApplicationController
   # before_action :check_cookies
   def index
     @get_note = NoteInfo.all
+
+    p '====================@getsdfg'
+    p @get_note
     @get_notes = []
     for notes in @get_note
       users_info =[]

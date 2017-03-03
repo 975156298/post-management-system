@@ -17,6 +17,5 @@ function preview_image(input){
 }
 
 function get_into_hobby(){
-    $('#user_info_list').hide();
-    $('#hobby').show()
+    jump_page('/user_information/index')
 }

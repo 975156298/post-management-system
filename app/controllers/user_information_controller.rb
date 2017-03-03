@@ -29,7 +29,6 @@ class UserInformationController < ApplicationController
     UserInformation.find_by_user('zhuxuey').delete
   end
 
-
   private
 
    def update_info

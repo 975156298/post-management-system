@@ -8,6 +8,7 @@ class NoteInfoController < ApplicationController
 
   def add_note
     @content = params[:text]
+    p @content
     # @up_file = params[:localfile]
     # @myfile = PictrueUploader.new
     # p '========================='

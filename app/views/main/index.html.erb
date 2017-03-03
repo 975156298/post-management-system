@@ -1,17 +1,40 @@
 <%= javascript_include_tag 'main/main.js' %>
+<%= stylesheet_link_tag 'main/main.css' %>
 <%= render "main/head" %>
 
 <button onclick="jump_page('/note_info/index')"> note_info</button>
 <button onclick="jump_page('/note_info/get_note')"> note_info</button>
-<% @get_notes.each do |get_note| %>
-    <div class="" onclick="">
-      <span class=""><%= get_note[1].name %></span>
-      <span class=""><%= get_note[1].sex %></span>
-    </div>
-    <div class="" onclick="get_note_id(<%= get_note[0].id %>)">
-      <p><%= get_note[0].content %></p>
-      <img src="<%= get_note[0].note_photo %>">
-    </div>
-    <button onclick="delete_note(<%= get_note[0].id %>)">shanchu</button>
+<body class="main_background">
+<div style="text-align: center;color: #ffffff;">
+  <div class="currency_frame">
+    <% @get_notes.each do |get_note| %>
+        <div class="note_fram">
+          <div class="head_info_fram">
+           <img src="<%= get_note[1].user_image %>" class="head_image">
+           <div  class="" onclick="">
+             <span class="left"><%= get_note[1].name %></span>
+             <span class="left"><%= get_note[1].sex %></span>
+             <br/>
+           </div>
+           <div>
+             <br/>
+             <span class="left"><%= get_note[0].created_at %></span>
+           </div>
+         </div>
+          <div class="" onclick="get_note_id(<%= get_note[0].id %>)">
+            <p class="note_content"><%= get_note[0].content %></p>
+            <img class="note_image " src="<%= get_note[0].note_photo %>">
+          </div>
+          <button onclick="delete_note(<%= get_note[0].id %>)">shanchu</button>
+          <div>
+            <span>评论</span>
+            <span>赞</span>
+            <span>隐藏</span>
+          </div>
+        </div>
 
-<% end %>
+
+    <% end %>
+  </div>
+</div>
+</body>
