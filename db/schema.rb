@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301035039) do
+ActiveRecord::Schema.define(version: 20170303043243) do
 
   create_table "note_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170301035039) do
     t.string   "address"
     t.string   "degree"
     t.string   "hobby"
+    t.string   "user_image"
   end
 
 end

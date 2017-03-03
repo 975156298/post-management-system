@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'user_information/delete_user'
   get "user_information/get_user_info"
   post 'user_information/update' => 'user_information#update'
-  post 'user_information/add_image' => 'user_information/add_image'
 
 
   get 'user_center/index'
+  post 'user_center/add_image' => 'user_center#add_image'
 
   root 'main#index'
 

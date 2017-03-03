@@ -10,15 +10,15 @@
       <span style="font-size: 28px;">个人中心</span>
     </div>
     <div class="block_frame">
-      <img  src="" class="head_image">
+      <img  src="<%= @user_info[:user_image] %>" class="head_image" onclick="open_upload()">
       <div onclick="jump_page('/user_information/index')">
         <div class="left">
           <span style="font-size: 28px;"><%= @user_info[:name] %></span>
           <span class="font-color"><%= @user_info[:sex] %></span>
-          <span class="font-color"><%= @user_info[:age] %></span>
-          <span class="font-color"><%= @user_info[:height] %></span>
         </div>
         <div class="left">
+          <span class="font-color"><%= @user_info[:age] %></span>
+          <span class="font-color"><%= @user_info[:height] %></span>
           <span class="font-color"><%= @user_info[:degree] %></span>
           <span class="font-color"><%= @user_info[:star] %></span>
           <span class="font-color"><%= @user_info[:work] %></span>
@@ -28,7 +28,7 @@
     </div>
     <div class="block_frame">
       <span class="left margin-left-20" >兴趣爱好:</span><br/>
-      <span class="left font-color"><%= @user_info[:hobby] %></span>
+      <span onclick="get_into_hobby()" class="left font-color"><%= @user_info[:hobby] %></span>
     </div>
     <div class="block_frame" style="height: 50px;">
       <div onclick="jump_page('/user_information/index')">
@@ -39,11 +39,18 @@
     <div class="block_frame" style="height: 50px;">
       <span class="left margin-left-20">相册</span>
     </div>
-
-    <div>
-      <img src="">
-
+    <div class="upload_image_fram">
+      <div style="width: 200px;height: 35px;">
+        <button class="close_button" onclick="close_upload()">关闭</button>
+      </div>
+      <img src="<%= @user_info[:user_image] %>" id="upload_image" class="upload_image">
+      <p class="font-color" style="font-size:22px;margin:10px 0;">上传图片</p>
+      <%= form_tag 'add_image', :multipart => true do%>
+          <%= file_field_tag :localfile,class:'choose_button',onchange:'preview_image(this)' %><br>
+          <%= submit_tag "上传",class:'upload_button'%>
+      <% end %>
     </div>
   </div>
 </div>
 </body>
+<%= render 'user_information/user_information' %>

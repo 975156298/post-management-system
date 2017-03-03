@@ -29,12 +29,6 @@ class UserInformationController < ApplicationController
     UserInformation.find_by_user('zhuxuey').delete
   end
 
-  def add_image
-    up_file
-    p @myfile.url
-    @user_info = get_user
-    # @user_info.update()
-  end
 
   private
 
