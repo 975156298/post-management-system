@@ -1,0 +1,39 @@
+.show_comment_fram{
+    border-bottom: 1px solid #ffffff;
+}
+.comment_main_fram{
+    border-top: 1px solid #151313;
+}
+.comment_head_image{
+    float: left;
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 0;
+    background-color: #CCCCCC;
+}
+.margin-left-5{
+    margin: 0;
+    margin-left: 5px;
+}
+.comment_content{
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.confirm_button{
+    width: 500px;
+    line-height: 50px;
+    background-color: #1936ed;
+    margin: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    border: 0;
+    position: fixed;
+    bottom: 0;
+
+}

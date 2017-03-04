@@ -25,12 +25,22 @@
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
           </div>
-          <button onclick="delete_note(<%= get_note[0].id %>)">shanchu</button>
-          <div>
-            <span>评论</span>
-            <span>赞</span>
-            <span>隐藏</span>
+          <!--<button onclick="delete_note(<%= get_note[0].id %>)">shanchu</button>-->
+          <div class="comment_fram">
+            <div  class="margin-right-20 icon_fram">
+              <%= image_tag "icon_reply",:class => 'icon' %>
+              <span >赞(<span id="favor">0</span>)</span>
+            </div>
+            <div class="margin-right-20 icon_fram" onclick="get_comment_fram(<%= get_note[0].id %>)">
+              <%= image_tag "reply",:class => 'icon' %>
+              <span >评论</span>
+            </div>
           </div>
+          <div onblur="lose_change()" tabindex="1" id="comment_input_fram<%= get_note[0].id %>" class="comment_input_fram">
+            <textarea id="comment" rows="3" ></textarea>
+            <button onclick="get_comment(<%= get_note[0].id %>)">回复</button>
+          </div>
+          <br/>
         </div>
 
 

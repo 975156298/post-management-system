@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'comment/index'
+  post 'comment/add_comment' => 'comment#add_comment'
+
   get 'user_information/index'
   get 'user_information/delete_user'
   get "user_information/get_user_info"
