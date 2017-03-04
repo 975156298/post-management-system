@@ -48,6 +48,7 @@ function jump_page(url){
 }
 
 function show_warn_model(message,is_wait) {
+
     $('body').append("<div class='warning-model'><div class='warning'>" + message + "</div></div>");
     if(is_wait == 'true'){
         setTimeout(function(){

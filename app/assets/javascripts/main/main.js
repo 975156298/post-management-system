@@ -24,20 +24,25 @@ function get_comment_fram(id){
     $('#comment_input_fram'+fore_id).hide();
     $('#comment_input_fram'+id).show();
 }
-function lose_change(){
-    $('.comment_input_fram').hide();
-}
 
 function get_comment(id){
-    var comment = $('#comment').val();
-    console.log(comment);
-    var data = {
-        note_id: id,
-        comment_content: comment
-    };
-    post_ajax('comment/add_comment',data,function(data){
-            console.log(data)
-            $('#comment').val('');
-    },function(){}
-    );
+    var comment = $('#comment'+id).val();
+    console.log(comment.length);
+    if(comment.length >= 1){
+        console.log('333333333333')
+        var data = {
+            note_id: id,
+            comment_content: comment
+        };
+        post_ajax('comment/add_comment',data,function(data){
+                $('#comment'+id).val('');
+                show_warn_model('评论成功','true');
+                $('#comment_input_fram'+id).hide()
+            },function(){}
+        );
+    }else{
+        console.log('wwwwwwwww');
+        show_warn_model('请输入内容','true');
+    }
+
 }
