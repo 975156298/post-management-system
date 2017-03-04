@@ -4,7 +4,6 @@
 function show_comment_fram(){
     $('#comment_input_fram').show();
     $('#comment_button').hide();
-    $('#change_comment_fram').focus();
 }
 
 function get_comment_(id){

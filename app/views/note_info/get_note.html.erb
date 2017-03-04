@@ -50,10 +50,10 @@
        <% end %>
      </div>
     </div>
-    <div tabindex="1" id="change_comment_fram" style="text-align: left" onblur="change()">
-      <button id="comment_button" class="confirm_button" onclick="show_comment_fram(<%= @get_note.id %>)">回复</button>
-      <div style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram" class="comment_input_fram">
-        <textarea style="width: 430px;" id="comment" rows="3" ></textarea>
+    <div  id="change_comment_fram" style="text-align: left" >
+      <button id="comment_button" class="confirm_button" style="background-color: #5f616d" onclick="show_comment_fram(<%= @get_note.id %>)">回复</button>
+      <div  onfocusout="change()" style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram" class="comment_input_fram">
+        <textarea  style="width: 430px;" id="comment" rows="3" ></textarea>
         <button onclick="get_comment_(<%= @get_note.id %>)">回复</button>
       </div>
     </div>

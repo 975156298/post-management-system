@@ -36,7 +36,7 @@
               <span >评论</span>
             </div>
           </div>
-          <div onblur="lose_change()" tabindex="1" id="comment_input_fram<%= get_note[0].id %>" class="comment_input_fram">
+          <div onfocusout="lose_change()"  id="comment_input_fram<%= get_note[0].id %>" class="comment_input_fram">
             <textarea id="comment" rows="3" ></textarea>
             <button onclick="get_comment(<%= get_note[0].id %>)">回复</button>
           </div>

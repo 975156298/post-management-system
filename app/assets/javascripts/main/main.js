@@ -19,8 +19,10 @@ function get_note_id(id){
 }
 
 function get_comment_fram(id){
+    var fore_id = sessionStorage.getItem('comment_id');
+    sessionStorage.setItem('comment_id',id);
+    $('#comment_input_fram'+fore_id).hide();
     $('#comment_input_fram'+id).show();
-    $('.comment_input_fram').focus();
 }
 function lose_change(){
     $('.comment_input_fram').hide();
