@@ -25,13 +25,14 @@ function get_comment_fram(id){
     $('#comment_input_fram'+id).show();
 }
 
-function get_comment(id){
+function get_comment(id,to_user_id){
     var comment = $('#comment'+id).val();
     console.log(comment.length);
     if(comment.length >= 1){
         console.log('333333333333')
         var data = {
             note_id: id,
+            to_uesr_id: to_user_id,
             comment_content: comment
         };
         post_ajax('comment/add_comment',data,function(data){

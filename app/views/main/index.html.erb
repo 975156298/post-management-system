@@ -38,7 +38,7 @@
           </div>
           <div id="comment_input_fram<%= get_note[0].id %>" class="comment_input_fram">
             <textarea id="comment<%= get_note[0].id %>" rows="3" ></textarea>
-            <button onclick="get_comment(<%= get_note[0].id %>)">回复</button>
+            <button onclick="get_comment(<%= get_note[0].id %>,'<%= get_note[0].user_id %>')">回复</button>
           </div>
           <br/>
         </div>

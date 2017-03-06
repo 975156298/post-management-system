@@ -7,5 +7,11 @@
       <schema-pattern>make_friend.*</schema-pattern>
       <default-schemas>make_friend.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - make_friend@localhost" uuid="3cfa7892-da5c-4368-8e8e-a488cd793959">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>make_friend.*</schema-pattern>
+      <default-schemas>make_friend.*</default-schemas>
+    </data-source>
   </component>
 </project>

@@ -18,6 +18,7 @@ class NoteInfoController < ApplicationController
       users_info.push(user_info)
       @get_comment.push(users_info)
     end
+    p @get_comment
     @get_comment
   end
 
