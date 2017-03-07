@@ -1,18 +1,18 @@
 <%= javascript_include_tag 'comment/comment.js' %>
 <%= stylesheet_link_tag 'comment/comment.css' %>
-<div class="main_background">
+<body class="main_background">
   <div style="text-align: center;color: #ffffff;">
     <div class="currency_frame">
       <% @note_info.each do |note_info| %>
+
           <div class="note_fram">
-            <%= note_info %>
             <div class="comment_user_info">
               <img src="<%= note_info[2].user_image %>">
-                <span><%= note_info[2].name %></span>
-                <br>
-                <span><%= note_info[2].created_at %></span>
+              <span><%= note_info[2].name %></span>
+              <br>
+              <span><%= note_info[2].created_at.to_s.slice(5,11) %></span>
             </div>
-            
+
             <div class="comment_note_info">
               <img src="<%= note_info[1].note_photo %>">
               <%= note_info[1].user_id %>: <span><%= note_info[1].content %></span>
@@ -23,19 +23,22 @@
             </div>
             <div class="comment_info">
               <img src="<%= note_info[2].user_image %>">
-              <span><%= note_info[0].comment_user_id %></span>
-              <span>回复</span>
-              <span><%= note_info[0].to_uesr_id %>:</span>
-              <span><%= note_info[0].comment_content %></span>
+              <div>
+                <span><%= note_info[0].comment_user_id %></span>
+                <span>回复</span>
+                <span><%= note_info[0].to_uesr_id %>:</span>
+                <span><%= note_info[0].comment_content %></span>
+              </div>
+              <span style="width: 300px;"><%= note_info[0].updated_at.to_s.slice(5,11) %></span>
             </div>
 
             <div id="comment_input_fram<%= note_info[0].id %>" class="comment_input_fram">
-              <textarea id="comment<%=  %>" rows="3" ></textarea>
-              <button onclick="">回复</button>
+              <textarea id="comment<%= note_info[0].id  %>" rows="3" ></textarea>
+              <button onclick="send_comment(<%= note_info[0].id %>,<%= note_info[0].comment_note_id %>,'<%= note_info[0].comment_user_id %>')">回复</button>
             </div>
             <br/>
           </div>
       <% end %>
     </div>
   </div>
-</div>
+</body>

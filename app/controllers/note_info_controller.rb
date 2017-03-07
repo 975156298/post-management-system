@@ -5,12 +5,8 @@ class NoteInfoController < ApplicationController
   def get_note
     @get_comment = []
     @get_note = NoteInfo.find_by_id(cookies[:note_id])
-    p '@get_note-------------------------------'
-    p @get_note.id
     @note_user_info = UserInformation.find_by_user(@get_note.user_id)
-    p @note_user_info
     @comment_info = Comment.where(:comment_note_id => @get_note.id)
-    p @comment_info
     for comment in @comment_info
       users_info =[]
       user_info = UserInformation.find_by_user(comment.comment_user_id)
@@ -18,7 +14,6 @@ class NoteInfoController < ApplicationController
       users_info.push(user_info)
       @get_comment.push(users_info)
     end
-    p @get_comment
     @get_comment
   end
 
@@ -53,6 +48,12 @@ class NoteInfoController < ApplicationController
 
   def del_note
     NoteInfo.find_by_id(params[:note_id]).delete
+    p '=======================pppp'
+    p Comment.where(comment_note_id: params[:note_id])
+    for comment in Comment.where(comment_note_id: params[:note_id])
+      comment.delete
+    end
+
   end
 
   def user_note

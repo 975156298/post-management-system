@@ -27,25 +27,28 @@ class UserInformationController < ApplicationController
 
   def delete_user
     UserInformation.find_by_user('zhuxuey').delete
+    for note in NoteInfo.where(user_id: params[:user_id])
+      note.delete
+    end
   end
 
   private
 
-   def update_info
-     {
-         name: params[:name],
-         height: params[:height],
-         star: params[:star],
-         sex: params[:sex],
-         birthday_time: params[:birthday_time].to_time,
-         age: Time.new(params[:birthday_time]).year,
-         work:params[:work],
-         contact: params[:phone],
-         address: params[:address],
-         degree: params[:degree],
-         hobby: params[:hobby]
-     }
-   end
+  def update_info
+    {
+        name: params[:name],
+        height: params[:height],
+        star: params[:star],
+        sex: params[:sex],
+        birthday_time: params[:birthday_time].to_time,
+        age: Time.new(params[:birthday_time]).year,
+        work:params[:work],
+        contact: params[:phone],
+        address: params[:address],
+        degree: params[:degree],
+        hobby: params[:hobby]
+    }
+  end
 
   def hobby_info
     [
@@ -77,11 +80,11 @@ class UserInformationController < ApplicationController
   def address
     [
         {province:"北京市", address: ["东城区", "西城区", "崇文区", "宣武区", "朝阳区", "丰台区", "石景山区", "海淀区", "门头沟区",
-                "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云县", "延庆县"]},
+                                   "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云县", "延庆县"]},
         {province: "天津市", address: ["和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "塘沽区", "汉沽区", "大港区",
-                "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "宁河县", "静海县", "蓟县"]},
+                                    "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "宁河县", "静海县", "蓟县"]},
         {province:"上海市", address: ["黄浦区", "卢湾区", "徐汇区", "长宁区", "静安区", "普陀区", "闸北区", "虹口区",
-                "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "南汇区", "奉贤区", "崇明县"]},
+                                   "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "南汇区", "奉贤区", "崇明县"]},
         {province: "重庆市", address: ["万州区", "涪陵区", "渝中区", "大渡口区", "江北区", "沙坪坝区", "九龙坡区", "南岸区", "北碚区", "万盛区", "双桥区", "渝北区", "巴南区", "黔江区", "长寿区", "綦江县", "潼南县", "铜梁县",
                                     "大足县", "荣昌县", "璧山县", "梁平县", "城口县", "丰都县", "垫江县", "武隆县", "忠县", "开县", "云阳县", "奉节县", "巫山县",
                                     "巫溪县", "石柱土家族自治县", "秀山土家族苗族自治县", "酉阳土家族苗族自治县", "彭水苗族土家族自治县", "江津市", "合川市", "永川市", "南川市"]},

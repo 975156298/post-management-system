@@ -19,9 +19,12 @@ function get_note_id(id){
 }
 
 function get_comment_fram(id){
+    console.log('-------------')
+    console.log('#comment_input_fram'+id)
     var fore_id = sessionStorage.getItem('comment_id');
     sessionStorage.setItem('comment_id',id);
     $('#comment_input_fram'+fore_id).hide();
+    $('#change_comment_fram').hide();
     $('#comment_input_fram'+id).show();
 }
 
@@ -29,11 +32,12 @@ function get_comment(id,to_user_id){
     var comment = $('#comment'+id).val();
     console.log(comment.length);
     if(comment.length >= 1){
-        console.log('333333333333')
+        console.log('333333333333');
         var data = {
             note_id: id,
             to_uesr_id: to_user_id,
-            comment_content: comment
+            comment_content: comment,
+            is_read: false
         };
         post_ajax('comment/add_comment',data,function(data){
                 $('#comment'+id).val('');

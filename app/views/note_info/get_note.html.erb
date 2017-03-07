@@ -17,7 +17,7 @@
         </div>
         <div>
           <br/>
-          <span class="left"><%= @get_note.created_at %></span>
+          <span class="left"><%= @get_note.created_at.to_s.slice(5,11) %></span>
         </div>
       </div>
       <div class="" >
@@ -25,45 +25,47 @@
         <img class="note_image " src="<%= @get_note.note_photo %>">
       </div>
 
-     <div class="comment_main_fram">
-       <% @get_comment.each_with_index do |comment,index| %>
-           <div class="show_comment_fram">
-             <div class="head_info_fram" style="border: 0;">
-               <img src="<%= comment[1].user_image %>" class="comment_head_image">
-               <div  class="" onclick="">
-                 <span class="left margin-left-5"><%= comment[1].name %></span>
-                 <span class="left margin-left-5"><%= comment[1].sex %></span>
-                 <br/>
-               </div>
-               <div>
-                 <br/>
-                 <span class="left margin-left-5"><%= comment[0].created_at %></span>
-               </div>
-               <div style="float: right;margin-right: 20px">
-                 <span  onclick="get_comment_fram(<%= comment[0].id %>)">回复</span>
-               </div>
-             </div>
-             <div class="comment_content margin-left-20">
-               <span style="margin-left: 55px;width: 300px;"><%= comment[0].comment_content %></span>
-             </div>
-           </div>
-       <% end %>
-     </div>
+      <div class="comment_main_fram">
+        <% @get_comment.each_with_index do |comment,index| %>
+            <div class="show_comment_fram">
+              <div class="head_info_fram" style="border: 0;">
+                <img src="<%= comment[1].user_image %>" class="comment_head_image">
+                <div  class="" onclick="">
+                  <span class="left margin-left-5"><%= comment[1].name %></span>
+                  <span class="left margin-left-5"><%= comment[1].sex %></span>
+                  <br/>
+                </div>
+                <div>
+                  <br/>
+                  <span class="left margin-left-5"><%= comment[0].created_at.to_s.slice(5,11) %></span>
+                  <span style="float: left;margin-left: 15px"><%= index+1 %>楼</span>
+                </div>
+                <div style="float: right;margin-right: 20px">
+                  <span  onclick="get_comment_fram(<%= index %>)">回复</span>
+                </div>
+              </div>
+              <div class="comment_content margin-left-20">
+                <span><%= comment[0].floor_number.to_i > 0 ? '回复'+ comment[0].floor_number + '楼:' : '' %></span>
+                <span style="width: 300px;"><%= comment[0].comment_content %></span>
+              </div>
+            </div>
+            <div  onfocusout="change()" style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram<%= index %>" class="comment_input_fram">
+              <textarea  style="width: 430px;" id="comment<%= index %>" rows="3" ></textarea>
+              <button onclick="get_comment_(<%= @get_note.id %>,<%= index %>,<%= @get_comment.length+1 %>,'<%= @note_user_info.user %>')">回复</button>
+            </div>
+        <% end %>
+      </div>
     </div>
     <div  id="change_comment_fram" style="text-align: left" >
       <button id="comment_button" class="confirm_button" style="background-color: #5f616d" onclick="show_comment_fram(<%= @get_note.id %>)">回复</button>
       <div  onfocusout="change()" style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram" class="comment_input_fram">
-        <textarea  style="width: 430px;" id="comment" rows="3" ></textarea>
-        <button onclick="get_comment_(<%= @get_note.id %>,'<%= @note_user_info.user %>')">回复</button>
+        <textarea  style="width: 430px;" id="comment-1" rows="3" ></textarea>
+        <button onclick="get_comment_(<%= @get_note.id %>,-1,'<%= @note_user_info.user %>')">回复</button>
       </div>
     </div>
 
   </div>
 </div>
-
-
-
-
 </body>
 
 
