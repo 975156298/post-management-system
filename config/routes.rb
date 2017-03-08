@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'user_center/add_image' => 'user_center#add_image'
 
   root 'main#index'
+  post '/add_note' => 'main#add_note'
 
   get 'land/index'
   get 'land/register'

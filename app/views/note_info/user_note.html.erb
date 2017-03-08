@@ -1,1 +1,32 @@
+<%= javascript_include_tag 'main/main.js' %>
+<%= stylesheet_link_tag 'note_info/note_info.css' %>
+
 <%= render "main/head" %>
+<body class="main_background">
+<div style="text-align: center;color: #ffffff;">
+  <div class="currency_frame">
+    <% @get_notes.each do |get_note| %>
+        <div class="note_fram">
+          <div class="head_info_fram">
+            <a class="delete_button" onclick="delete_note(<%= get_note[0].id %>)">删除</a>
+            <img src="<%= get_note[1].user_image %>" class="head_image">
+            <div  class="" onclick="">
+              <span class="left"><%= get_note[1].name %></span>
+              <span class="left"><%= get_note[1].sex %></span>
+              <br/>
+            </div>
+            <div>
+              <br/>
+              <span class="left"><%= get_note[0].created_at.to_s.slice(5,11) %></span>
+            </div>
+          </div>
+          <div class="" onclick="get_note_id(<%= get_note[0].id %>)">
+            <p class="note_content"><%= get_note[0].content %></p>
+            <img class="note_image " src="<%= get_note[0].note_photo %>">
+          </div>
+
+        </div>
+    <% end %>
+      </div>
+    </div>
+</body>

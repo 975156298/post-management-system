@@ -2,11 +2,16 @@
 <%= stylesheet_link_tag 'main/main.css' %>
 <%= render "main/head" %>
 
-<button onclick="jump_page('/note_info/index')"> note_info</button>
-<button onclick="jump_page('/note_info/get_note')"> note_info</button>
 <body class="main_background">
 <div style="text-align: center;color: #ffffff;">
   <div class="currency_frame">
+    <%= form_tag  'add_note',:class => 'from',:multipart => true do%>
+        <%= text_area_tag(:text, "", size: "30x3",:id => 'note_content') %>
+        <div>选择图片
+          <%= file_field_tag :localfile ,:id => 'note_image',:style => 'opacity:0;width: 70px;top: 60px;height: 60px;position: absolute;'%>
+        </div>
+        <%= button_tag "上传",:class =>'upload',:onclick => 'upload_button()'%>
+    <% end %>
     <% @get_notes.each do |get_note| %>
         <div class="note_fram">
           <div class="head_info_fram">
@@ -25,7 +30,6 @@
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
           </div>
-          <button onclick="delete_note(<%= get_note[0].id %>)">shanchu</button>
           <div class="comment_fram">
             <div  class="margin-right-20 icon_fram">
               <%= image_tag "icon_reply",:class => 'icon' %>

@@ -5,11 +5,11 @@ class NoteInfoController < ApplicationController
   def get_note
     @get_comment = []
     @get_note = NoteInfo.find_by_id(cookies[:note_id])
-    @note_user_info = UserInformation.find_by_user(@get_note.user_id)
+    @note_user_info = UserInformation.find_by_name(@get_note.user_id)
     @comment_info = Comment.where(:comment_note_id => @get_note.id)
     for comment in @comment_info
       users_info =[]
-      user_info = UserInformation.find_by_user(comment.comment_user_id)
+      user_info = UserInformation.find_by_name(comment.comment_user_id)
       users_info.push(comment)
       users_info.push(user_info)
       @get_comment.push(users_info)
@@ -30,7 +30,7 @@ class NoteInfoController < ApplicationController
     p @myfile.url
 
     @user_info = get_user
-    if NoteInfo.new(:user_id => @user_info.user,:content => @content,:note_photo => @myfile.url).save
+    if NoteInfo.new(:user_id => @user_info.name,:content => @content,:note_photo => @myfile.url).save
       redirect_to '/'
     end
   end
@@ -48,7 +48,6 @@ class NoteInfoController < ApplicationController
 
   def del_note
     NoteInfo.find_by_id(params[:note_id]).delete
-    p '=======================pppp'
     p Comment.where(comment_note_id: params[:note_id])
     for comment in Comment.where(comment_note_id: params[:note_id])
       comment.delete
@@ -57,5 +56,15 @@ class NoteInfoController < ApplicationController
   end
 
   def user_note
+    @get_notes = []
+    @note_info = NoteInfo.where(:user_id => get_user.name)
+    for note_info in @note_info
+      note_infos = []
+      note_infos.push(note_info)
+      user_info = UserInformation.find_by_name(note_info.user_id)
+      note_infos.push(user_info)
+      @get_notes.push(note_infos)
+    end
+    @get_notes
   end
 end

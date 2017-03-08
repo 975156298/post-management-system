@@ -37,3 +37,11 @@
     bottom: 0;
 
 }
+.delete_button{
+    float: right;
+    margin: 10px 20px;
+    width: 100px;
+    line-height: 30px;
+    border-radius: 10px;
+
+}

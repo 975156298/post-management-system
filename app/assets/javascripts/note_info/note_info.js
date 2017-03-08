@@ -6,7 +6,7 @@ function show_comment_fram(){
     $('#comment_button').hide();
 }
 
-function get_comment_(id,num,now_num,to_user_id){
+function get_comment_(id,num,to_user_id){
     var comment = $('#comment'+num).val();
     console.log(comment);
     if(comment.length >0){
@@ -33,4 +33,5 @@ function change(){
     $('#comment_input_fram').hide();
     $('#comment_button').show();
 }
+
 

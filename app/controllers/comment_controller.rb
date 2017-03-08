@@ -1,13 +1,14 @@
 class CommentController < ApplicationController
   def index
-    @comments = Comment.where(:to_uesr_id => cookies[:user]).order(created_at: :desc)
+    @comments = Comment.where(:to_uesr_id => get_user.name).order(created_at: :desc)
     @note_info = []
     for comment in @comments
+      comment.update(:is_read => 'true')
       if comment.comment_user_id != comment.to_uesr_id
         coments = []
         coments.push(comment)
         coments.push(NoteInfo.find_by_id(comment.comment_note_id))
-        coments.push(UserInformation.find_by_user(comment.comment_user_id))
+        coments.push(UserInformation.find_by_name(comment.comment_user_id))
         @note_info.push(coments)
       end
     end
@@ -17,6 +18,7 @@ class CommentController < ApplicationController
   end
 
   def add_comment
+
     if Comment.new(comment_info).save
       render :json => {status: '200'}
     else
@@ -33,7 +35,7 @@ class CommentController < ApplicationController
   def comment_info
     {
         :comment_note_id => params[:note_id],
-        :comment_user_id => cookies[:user],
+        :comment_user_id => get_user.name,
         :to_uesr_id => params[:to_uesr_id],
         :comment_content => params[:comment_content],
         :floor_number => params[:floor_number],
