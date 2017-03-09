@@ -70,24 +70,30 @@ function set_user_information(){
 }
 
 function set_name(){
-    $("#input_name").val($('#name').text())
-    $('#input_name').show();
-    $('#name').hide()
+    get_ajax('/user_information/get_user_info','',function(data){
+        if(data.date.name == null){
+            $("#input_name").val($('#name').text())
+            $('#input_name').show();
+            $('#name').hide()
+        }else{
+            show_warn_model('name不可更改','true')
+        }
+    },function(){})
+
 }
 
 function get_name(val){
     var status = true;
     get_ajax('/user_information/get_all_user','',function(data){
-        var user = get_cookies(' user');
         for(var i in data.data){
-            if(data.data[i].name == val && data.data[i].user != user){
+            if(data.data[i].name == val){
                 show_warn_model('name以存在','true');
                 $('.confirm_button1').attr('disabled',true)
                 status = false
                 break
             }
         }
-        if(val == '' || val.length < 0 || val.length > 8){
+        if(val == '' || val == '无' || val.length < 0 || val.length > 8){
             show_warn_model('name的值为1~8位','true');
             $('.confirm_button1').attr('disabled',true)
         }else if(status){
