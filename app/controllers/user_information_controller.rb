@@ -9,6 +9,11 @@ class UserInformationController < ApplicationController
     @work_infos = works
   end
 
+  def get_all_user
+    @user_all = UserInformation.all
+    render :json => {data: @user_all}
+  end
+
   def get_user_info
     user_info = UserInformation.find_by_user(cookies[:user])
     render :json =>{date: user_info}

@@ -51,13 +51,13 @@ function set_user_information(){
         'sex':$('#sex').text(),
         'birthday_time':$('#date').val(),
         'name': $('#name').text(),
-        'height':sessionStorage.getItem("height"),
-        'star':sessionStorage.getItem("star"),
-        'work':sessionStorage.getItem("work"),
+        'height':$("#height").text(),
+        'star': $("#star").text(),
+        'work':$("#work").text(),
         'phone':$('#photo').text(),
-        'address':sessionStorage.getItem("address"),
-        'degree':sessionStorage.getItem("degree"),
-        'hobby':sessionStorage.getItem("hobbys")
+        'address':$("#address").text(),
+        'degree':$("#degree").text(),
+        'hobby':$("#hobby").text()
     };
     post_ajax(url, data,
         function(data){
@@ -76,13 +76,27 @@ function set_name(){
 }
 
 function get_name(val){
-    if(val == ''){
-        show_warn_model('数据为空，请输入name','true');
-    }else{
-        $('#name').text(val);
-        $('#name').show();
-        $('#input_name').hide()
-    }
+    var status = true;
+    get_ajax('/user_information/get_all_user','',function(data){
+        var user = get_cookies(' user');
+        for(var i in data.data){
+            if(data.data[i].name == val && data.data[i].user != user){
+                show_warn_model('name以存在','true');
+                $('.confirm_button1').attr('disabled',true)
+                status = false
+                break
+            }
+        }
+        if(val == '' || val.length < 0 || val.length > 8){
+            show_warn_model('name的值为1~8位','true');
+            $('.confirm_button1').attr('disabled',true)
+        }else if(status){
+            $('.confirm_button1').attr('disabled',false);
+            $('#name').text(val);
+            $('#name').show();
+            $('#input_name').hide()
+        }
+    },function(){})
 }
 
 function set_sex(){

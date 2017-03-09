@@ -57,6 +57,12 @@ function show_warn_model(message,is_wait) {
     }
 }
 
-function remove_model(){
-    $('.warning-model').remove()
+function get_cookies(val){
+    for(var i in document.cookie.split(';')){
+        if(document.cookie.split(';')[i].split('=')[0] == val){
+            return document.cookie.split(';')[i].split('=')[1]
+        }
+    }
 }
+
+
