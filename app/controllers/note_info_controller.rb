@@ -5,6 +5,8 @@ class NoteInfoController < ApplicationController
   def get_note
     @get_comment = []
     @get_note = NoteInfo.find_by_id(cookies[:note_id])
+    p '==============='
+    p @get_note
     @note_user_info = UserInformation.find_by_name(@get_note.user_id)
     @comment_info = Comment.where(:comment_note_id => @get_note.id)
     for comment in @comment_info

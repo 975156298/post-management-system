@@ -14,9 +14,9 @@
     <% end %>
     <% @get_notes.each do |get_note| %>
         <div class="note_fram">
-          <div class="head_info_fram">
+          <div class="head_info_fram" onclick="get_user_id('<%= get_note[1].name %>')">
             <img src="<%= get_note[1].user_image %>" class="head_image">
-            <div  class="" onclick="">
+            <div>
               <span class="left"><%= get_note[1].name %></span>
               <span class="left"><%= get_note[1].sex %></span>
               <br/>
@@ -26,7 +26,7 @@
               <span class="left"><%= get_note[0].created_at.to_s.slice(5,11) %></span>
             </div>
           </div>
-          <div class="" onclick="get_note_id(<%= get_note[0].id %>)">
+          <div onclick="get_note_id(<%= get_note[0].id %>)">
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
           </div>

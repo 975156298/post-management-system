@@ -9,21 +9,17 @@
     <div class="head">
       <span style="font-size: 28px;">个人中心</span>
     </div>
-    <div class="block_frame">
-      <img  src="<%= @user_info[:user_image] %>" class="head_image" onclick="open_upload()">
+    <div class="block_frame" style="height: 120px;">
+      <img  src="<%= @user_info[:user_image] %>" class="head_image" style="height: 90px;width: 90px;" onclick="open_upload()">
       <div onclick="jump_page('/user_information/index')">
-        <div class="left">
-          <span style="font-size: 28px;"><%= @user_info[:name] %></span>
-          <span class="font-color"><%= @user_info[:sex] %></span>
-          <span class="font-color"><%= @user_info[:age] %></span>
-        </div>
-        <div class="left">
-          <span class="font-color"><%= @user_info[:height] %></span>
-          <span class="font-color"><%= @user_info[:degree] %></span>
-          <span class="font-color"><%= @user_info[:star] %></span>
-          <span class="font-color"><%= @user_info[:work] %></span>
-          <span class="font-color"><%= @user_info[:address] %></span>
-        </div>
+        <span style="font-size: 28px;"><%= @user_info[:name] %></span>
+        <span class="font-color" style="line-height: 45px;margin-left: 10px;"><%= @user_info[:sex] %></span>
+        <span class="font-color" style="line-height: 45px;margin-left: 10px;"><%= @user_info[:age] %></span><br/><br/><br/>
+        <span class="font-color left"><%= @user_info[:height] %></span>
+        <span class="font-color left"><%= @user_info[:degree] %></span>
+        <span class="font-color left"><%= @user_info[:star] %></span>
+        <span class="font-color left"><%= @user_info[:work] %></span>
+        <span class="font-color left"><%= @user_info[:address] %></span>
       </div>
     </div>
     <div class="block_frame">

@@ -18,6 +18,9 @@
     -moz-border-radius: 7px;
     border-radius: 7px;
 }
+.block_frame span{
+    float: left;
+}
 
 .left{
     float: left;

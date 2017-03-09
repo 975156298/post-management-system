@@ -1,0 +1,35 @@
+<%= javascript_include_tag 'main/main.js' %>
+<%= stylesheet_link_tag 'user_informations/user_information.css' %>
+<%= render "main/head" %>
+
+
+<body class="main_background">
+<div style="text-align: center;color: #ffffff;">
+  <div class="currency_frame">
+    <div class="user_head">
+      <div style="height: 100px;">
+        <img src="<%= @user[:user_image] %>" />
+        <span style="font-size: 30px;"><%= @user[:name] %></span><br/><br/><br/>
+        <span><%= @user[:sex] %></span>
+        <span><%= @user[:age] %></span>
+        <span><%= @user[:height] %></span>
+        <span><%= @user[:star] %></span>
+        <span><%= @user[:degree] %></span>
+        <span><%= @user[:address] %></span>
+        <span><%= @user[:work] %></span>
+      </div>
+      <div style="margin-top: 10px;">
+        <span >兴趣爱好:</span>
+        <span ><%= @user[:hobby] %></span>
+      </div>
+    </div>
+    <% @note.each do |note| %>
+    <div class="user_note" onclick="get_note_id(<%= note[:id] %>)">
+      <img src="<%= note[:note_photo] %>">
+      <span><%= note[:content].length < 13 ? note[:content] : note[:content].slice(0,10) + '......'%></span>
+      <span style="float: right"><%= note[:updated_at].to_s.slice(5,11)%></span>
+    </div>
+    <% end %>
+  </div>
+</div>
+</body>
