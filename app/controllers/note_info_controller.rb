@@ -1,4 +1,6 @@
 class NoteInfoController < ApplicationController
+  before_action :check_cookies
+  before_action :check_user_name
   def index
   end
 

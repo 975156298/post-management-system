@@ -1,4 +1,6 @@
 class CommentController < ApplicationController
+  before_action :check_cookies
+  before_action :check_user_name
   def index
     @comments = Comment.where(:to_uesr_id => get_user.name).order(created_at: :desc)
     @note_info = []
@@ -18,7 +20,6 @@ class CommentController < ApplicationController
   end
 
   def add_comment
-
     if Comment.new(comment_info).save
       render :json => {status: '200'}
     else

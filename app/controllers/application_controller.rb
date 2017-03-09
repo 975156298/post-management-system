@@ -3,13 +3,20 @@ class ApplicationController < ActionController::Base
 
   def check_cookies
     if cookies[:user].blank?
-      redirect_to 'land/index'
+      redirect_to '/land/index'
+    end
+  end
+
+  def check_user_name
+    if get_user.name.nil?
+      redirect_to '/user_information/index'
     end
   end
 
   def get_user
     @user = UserInformation.find_by_user(cookies[:user])
   end
+
 
   def up_file
     @up_file = params[:localfile]

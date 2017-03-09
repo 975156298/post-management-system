@@ -9,7 +9,7 @@ class LandController < ApplicationController
     if @save_register
       redirect_to '/'
     else
-      redirect_to 'land/register'
+      redirect_to '/land/register'
     end
 
   end
@@ -34,7 +34,7 @@ class LandController < ApplicationController
       render :json => {status: '密码不正确'}
     else
       cookies[:user] = @land_info.user
-      render :json =>{status: 'success'}
+      render :json =>{status: 'success',data: @land_info}
     end
   end
 

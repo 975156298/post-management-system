@@ -1,5 +1,6 @@
 class MainController < ApplicationController
-  # before_action :check_cookies
+  before_action :check_cookies, only: [:get_user,:add_note]
+  before_action :check_user_name, only: [:get_user,:add_note]
   def index
     @get_note = NoteInfo.all.order(updated_at: :desc)
     @get_notes = []

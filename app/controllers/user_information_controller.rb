@@ -1,5 +1,5 @@
 class UserInformationController < ApplicationController
-  before_action :check_cookies
+  before_action :check_cookies, only: [:index, :get_user_info, :update]
   def index
     @hobby_infos = hobby_info
     @degree_infos = degree_info

@@ -43,10 +43,13 @@ function land(){
     get_ajax(url,data,
         function(data){
             if(data.status == 'success'){
-                //$('#land_success').text('退出');
-                //alert( $('#land_success').text())
                 show_warn_model('登录成功');
-                jump_page('/');
+                if(data.data.name == null){
+                    jump_page('/user_information/index')
+                }else{
+                    jump_page('/');
+
+                }
             }
         },
         function(){
