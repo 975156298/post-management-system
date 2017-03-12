@@ -7,16 +7,16 @@
   <div class="currency_frame">
     <% @laud_info.each_with_index do |laud_info,index| %>
         <div class="note_fram" style="color: #ffffff;">
-          <div class="comment_user_info" onclick="get_user_id('<%= laud_info[1].name %>')">
+          <div class="comment_user_info">
             <img src="<%= laud_info[1].user_image %>">
             <span><%= laud_info[1].name %></span> 攒了
             <br>
             <span><%= laud_info[1].created_at.to_s.slice(5,11) %></span>
           </div>
 
-          <div class="comment_note_info" onclick="get_note_id(<%= laud_info[0].id %>)">
+          <div class="comment_note_info">
             <img src="<%= laud_info[0].note_photo %>">
-            <%= laud_info[0].user_id %>: <span><%= laud_info[0].content %></span>
+            <%= laud_info[0].user_id %>: <span><%= laud_info[0].content.length > 10 ? laud_info[0].content.slice(0,10) +'......' : laud_info[0].content %></span>
           </div>
           <div onclick="show_comment(<%= index %>)" style="margin: 10px 20px;text-align: left" class="margin-right-20">
             <%= image_tag "reply",:class => 'icon' %>
