@@ -34,6 +34,7 @@ class LandController < ApplicationController
       render :json => {status: '密码不正确'}
     else
       cookies[:user] = @land_info.user
+      cookies[:name] = @land_info.name
       render :json =>{status: 'success',data: @land_info}
     end
   end

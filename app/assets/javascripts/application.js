@@ -57,13 +57,13 @@ function show_warn_model(message,is_wait) {
     }
 }
 
-/*function get_cookies(val){
+function get_cookies(val){
     for(var i in document.cookie.split(';')){
         if(document.cookie.split(';')[i].split('=')[0] == val){
             return document.cookie.split(';')[i].split('=')[1]
         }
     }
-}*/
+}
 
 /*function delete_cookies(val){
     var now_month = new Date();

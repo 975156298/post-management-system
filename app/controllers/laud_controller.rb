@@ -28,6 +28,6 @@ class LaudController < ApplicationController
   end
 
   def delete_laud
-    @laud_info = Laud.find_by_note_id(params[:note_id]).delete
+    @laud_info = Laud.find_by_id(params[:laud_id]).delete
   end
 end
