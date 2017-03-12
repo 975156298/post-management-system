@@ -67,3 +67,22 @@ function upload_button(){
     }
 
 }
+
+function laud(id){
+    get_ajax('/laud/get_user_laud',{note_id: id},function(data){
+        if(data.data.length > 0){
+            post_ajax('/laud/delete_laud',{note_id: id},function(data){
+                $('#laud'+id).text('赞')
+                $('#favor'+id).text(parseInt($('#favor'+id).text()) - 1)
+            },function(){})
+        }else{
+            post_ajax('/laud/add_laud',{note_id: id},function(data){
+                $('#laud'+id).text('已赞')
+                $('#favor'+id).text(parseInt($('#favor'+id).text()) + 1)
+            },function(){})
+        }
+    },function(){});
+
+
+
+}

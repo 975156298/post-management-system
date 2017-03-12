@@ -5,10 +5,18 @@ class MainController < ApplicationController
     @get_note = NoteInfo.all.order(updated_at: :desc)
     @get_notes = []
     for notes in @get_note
+      laud = []
       users_info =[]
       user_info = UserInformation.find_by_name(notes.user_id)
+      laud.push(Laud.where({:note_id => notes.id}).length)
+      if Laud.where({:note_id => notes.id,:user_name => UserInformation.find_by_user(cookies[:user]).name}).length > 0
+        laud.push('已赞')
+      else
+        laud.push('赞')
+      end
       users_info.push(notes)
       users_info.push(user_info)
+      users_info.push(laud)
       @get_notes.push(users_info)
     end
     @get_notes

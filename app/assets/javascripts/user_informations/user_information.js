@@ -79,7 +79,6 @@ function set_name(){
             show_warn_model('name不可更改','true')
         }
     },function(){})
-
 }
 
 function get_name(val){
