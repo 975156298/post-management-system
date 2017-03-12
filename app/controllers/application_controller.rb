@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def check_cookies
     if cookies[:user].blank?
-      redirect_to '/land/index'
+      redirect_to '/'
     end
   end
 

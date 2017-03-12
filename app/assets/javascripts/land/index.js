@@ -58,7 +58,7 @@ function land(){
                 if(data.data.name == null){
                     jump_page('/user_information/index')
                 }else{
-                    jump_page('/');
+                    jump_page('/main/index');
 
                 }
             }

@@ -13,12 +13,12 @@ Rails.application.routes.draw do
   get 'user_center/index'
   post 'user_center/add_image' => 'user_center#add_image'
 
-  root 'main#index'
+  get 'main/index'
   get '/get_user' => 'main#get_user'
 
   post '/add_note' => 'main#add_note'
 
-  get 'land/index'
+  root 'land#index'
   get 'land/register'
   get 'land/land' => 'land#land'
   post '/land/set_register_info' => 'land#set_register_info'
