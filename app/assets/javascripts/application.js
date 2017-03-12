@@ -63,9 +63,9 @@ function show_warn_model(message,is_wait) {
             return document.cookie.split(';')[i].split('=')[1]
         }
     }
-}
+}*/
 
-function delete_cookies(val){
+/*function delete_cookies(val){
     var now_month = new Date();
     now_month.setTime(now_month.getTime() - 1);
     var value = [];

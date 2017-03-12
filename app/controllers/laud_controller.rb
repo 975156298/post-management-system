@@ -1,13 +1,24 @@
 class LaudController < ApplicationController
 
+  def index
+    @laud_info = []
+    @note_infos = NoteInfo.where({:user_id => get_user.name})
+    for note_info in @note_infos
+      user_info = []
+      user_info.push(note_info)
+      @laud = Laud.where({:note_id => note_info.id}).where.not(:user_name => get_user.name).order(created_at: :desc)
+      for laud in @laud
+        laud.update(:is_read => true)
+        user_info.push(UserInformation.find_by_name(laud.user_name))
+        @laud_info.push(user_info)
+      end
+    end
+    @laud_info
+  end
 
   def get_user_laud
     @laud = Laud.where({:note_id => params[:note_id],:user_name => get_user.name})
     render :json => {:data => @laud}
-  end
-
-  def get_note__laud_num
-    @num = Laud.where({:note_id => params[:note_id]}).length
   end
 
   def add_laud

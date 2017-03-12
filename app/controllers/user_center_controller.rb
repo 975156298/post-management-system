@@ -10,15 +10,17 @@ class UserCenterController < ApplicationController
         @is_read = 'false'
       end
     end
+    @is_read
 
+    @is_read_laud = 'true'
     @note = NoteInfo.where({:user_id => get_user.name})
     for note in @note
       @laud = Laud.where({:note_id => note.id,:is_read => false}).where.not(:user_name => get_user.name) #where.not()组合不等于，上面是有等于也有不等于
       if @laud.length >0
-        @is_read = 'false'
+        @is_read_laud = 'false'
       end
     end
-    @is_read
+    @is_read_laud
     p @is_read
   end
 

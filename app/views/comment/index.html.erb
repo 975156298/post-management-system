@@ -7,14 +7,14 @@
       <% @note_info.each do |note_info| %>
 
           <div class="note_fram">
-            <div class="comment_user_info">
+            <div class="comment_user_info" onclick="get_user_id('<%= note_info[2].name %>')">
               <img src="<%= note_info[2].user_image %>">
               <span><%= note_info[2].name %></span>
               <br>
               <span><%= note_info[2].created_at.to_s.slice(5,11) %></span>
             </div>
 
-            <div class="comment_note_info">
+            <div class="comment_note_info" onclick="get_note_id(<%= note_info[1].id %>)">
               <img src="<%= note_info[1].note_photo %>">
               <%= note_info[1].user_id %>: <span><%= note_info[1].content %></span>
             </div>

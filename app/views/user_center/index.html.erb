@@ -34,6 +34,13 @@
       <span class="left margin-left-20">评论提醒</span>
     </div>
     <div class="block_frame" style="height: 50px;">
+      <div onclick="jump_page('/laud/index')">
+        <%= image_tag "arrow_right",:class => 'right_image1' %>
+        <img style="display: <%= @is_read_laud == 'false' ? 'block' : 'none' %>;" src="/remind_read_comment.png" class="red_image" />
+      </div>
+      <span class="left margin-left-20">谁赞了我</span>
+    </div>
+    <div class="block_frame" style="height: 50px;">
       <span class="left margin-left-20">相册</span>
     </div>
     <div class="upload_image_fram">

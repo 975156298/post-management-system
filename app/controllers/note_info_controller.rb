@@ -52,9 +52,11 @@ class NoteInfoController < ApplicationController
 
   def del_note
     NoteInfo.find_by_id(params[:note_id]).delete
-    p Comment.where(comment_note_id: params[:note_id])
     for comment in Comment.where(comment_note_id: params[:note_id])
       comment.delete
+    end
+    for laud in Laud.where(:note_id => params[:note_id])
+      laud.delete
     end
 
   end

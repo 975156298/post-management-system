@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   get 'note_info/user_note'
 
 
+  get 'laud/index'
   get 'laud/get_user_laud'
-  get 'laud/get_note__laud_num'
   post 'laud/add_laud'
   post 'laud/delete_laud'
 
