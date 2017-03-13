@@ -5,10 +5,16 @@
 <body class="main_background">
 <div style="text-align: center;color: #ffffff;">
   <div class="currency_frame">
+    <div class="sort_tag">
+      <a style="background-color: <%= params[:sort_mode].to_i == 0 ? 'red':'#00000' %>" onclick="jump_page('/main/index?sort_mode=0&page=1')">时间从前到后</a>
+      <a style="background-color: <%= params[:sort_mode].to_i == 1 ? 'red':'#00000' %>" onclick="jump_page('/main/index?sort_mode=1&page=1')">时间从后到前</a>
+      <a style="background-color: <%= params[:sort_mode].to_i == 2 ? 'red':'#00000' %>" onclick="jump_page('/main/index?sort_mode=2&page=1')">赞数从小到大</a>
+      <a style="background-color: <%= params[:sort_mode].to_i == 3 ? 'red':'#00000' %>" onclick="jump_page('/main/index?sort_mode=3&page=1')">赞数从大到小</a>
+    </div>
     <%= form_tag  'add_note',:class => 'from',:multipart => true do%>
         <%= text_area_tag(:text, "", size: "30x3",:id => 'note_content') %>
         <div>选择图片
-          <%= file_field_tag :localfile ,:id => 'note_image',:style => 'opacity:0;width: 70px;top: 60px;height: 60px;position: absolute;'%>
+          <%= file_field_tag :localfile ,:id => 'note_image',:style => 'opacity:0;width: 70px;top: 130px;height: 60px;position: absolute;'%>
         </div>
         <%= button_tag "上传",:class =>'upload',:onclick => 'upload_button()'%>
     <% end %>

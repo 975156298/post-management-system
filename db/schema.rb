@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312014414) do
+ActiveRecord::Schema.define(version: 20170313065121) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comment_note_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170312014414) do
     t.string   "note_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "laud_num"
   end
 
   create_table "user_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

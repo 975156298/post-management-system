@@ -58,7 +58,7 @@ function land(){
                 if(data.data.name == null){
                     jump_page('/user_information/index')
                 }else{
-                    jump_page('/main/index?page=1');
+                    jump_page('/main/index?sort_mode=1&page=1');
 
                 }
             }

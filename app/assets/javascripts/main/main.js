@@ -64,7 +64,7 @@ function laud(id){
             for(var i in data.data){
                 if(data.data[i].user_name == get_cookies(' name')){
                     status = false;
-                    post_ajax('/laud/delete_laud',{laud_id: data.data[i].id},function(data){
+                    post_ajax('/laud/delete_laud',{note_id: id,laud_id: data.data[i].id},function(data){
                         $('#laud'+id).text('赞')
                         $('#favor'+id).text(parseInt($('#favor'+id).text()) - 1)
                     },function(){})

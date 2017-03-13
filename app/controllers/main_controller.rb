@@ -8,11 +8,22 @@ class MainController < ApplicationController
     if  params[:page].to_i == 1
       @up_page = '首页'
     end
-    if params[:page].to_i == (NoteInfo.count() / 2.0).ceil
+    if params[:page].to_i == (NoteInfo.count() / 5.0).ceil
       @next_page = '尾页'
     end
-    p (NoteInfo.count() / 2.0).ceil
-    @get_note = NoteInfo.page(params[:page]).per(2).order(updated_at: :desc)
+    if params[:sort_mode].to_i == 0
+      @get_note = NoteInfo.page(params[:page]).per(5)
+    end
+    if params[:sort_mode].to_i == 1
+      @get_note = NoteInfo.page(params[:page]).per(5).order(updated_at: :asc)
+    end
+    if params[:sort_mode].to_i == 2
+      @get_note = NoteInfo.page(params[:page]).per(5).order(laud_num: :asc)
+    end
+    if params[:sort_mode].to_i == 3
+      @get_note = NoteInfo.page(params[:page]).per(5).order(laud_num: :desc)
+    end
+
     @get_notes = []
     for notes in @get_note
       laud = []
@@ -41,7 +52,7 @@ class MainController < ApplicationController
       @content = params[:text]
       @user_info = UserInformation.find_by_user(cookies[:user])
       up_file
-      if NoteInfo.new(:user_id => @user_info.name,:content => @content,:note_photo => @myfile.url).save
+      if NoteInfo.new(:user_id => @user_info.name,:content => @content,:note_photo => @myfile.url,:laud_num => 0).save
         redirect_to '/main/index'
       end
     end

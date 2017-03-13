@@ -24,11 +24,19 @@ class LaudController < ApplicationController
 
   def add_laud
     if Laud.new({:note_id => params[:note_id],:user_name => get_user.name, :is_laud => true, :is_read => false}).save
+      note_info = NoteInfo.find_by_id(params[:note_id])
+      if note_info
+        note_info.update({:laud_num => note_info[:laud_num] + 1})
+      end
       render :json => {:status => '200'}
     end
   end
 
   def delete_laud
     @laud_info = Laud.find_by_id(params[:laud_id]).delete
+    note_info = NoteInfo.find_by_id(params[:note_id])
+    if note_info
+      note_info.update({:laud_num => note_info[:laud_num] - 1})
+    end
   end
 end

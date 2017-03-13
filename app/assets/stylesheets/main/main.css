@@ -124,3 +124,15 @@
     font-size: 18px;
     padding: 0;
 }
+.sort_tag{
+    background-color: #2E2F30;
+    line-height: 60px;
+    border-radius: 7px;
+    margin: 10px 0;
+}
+
+.sort_tag a{
+    padding: 0 5px;
+    border-right: 3px solid #141315;
+    border-left: 3px solid #141315;
+}
