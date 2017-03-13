@@ -20,7 +20,7 @@
               <span class="left"><%= get_note[0].created_at.to_s.slice(5,11) %></span>
             </div>
           </div>
-          <div class="" onclick="get_note_id(<%= get_note[0].id %>)">
+          <div class="" onclick="jump_page('/note_info/get_note?note_id=<%= get_note[0].id %>')">
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
           </div>

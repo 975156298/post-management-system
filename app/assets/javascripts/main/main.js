@@ -1,12 +1,6 @@
 /**
  * Created by lenovo on 17-2-11.
  */
-function get_user_id(id){
-    document.cookie = "user_name=" + id;
-    jump_page('/get_user')
-}
-
-
 function delete_note(id){
     get_ajax('http://localhost:3000/note_info/del_note',{note_id:id},
         function(data){
@@ -17,11 +11,6 @@ function delete_note(id){
             show_warn_model('error')
         }
     )
-}
-
-function get_note_id(id){
-    document.cookie = "note_id=" + id;
-    jump_page('/note_info/get_note')
 }
 
 function get_comment_fram(id){

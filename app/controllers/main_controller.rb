@@ -23,7 +23,7 @@ class MainController < ApplicationController
   end
 
   def get_user
-    @user = UserInformation.find_by_name(cookies[:user_name])
+    @user = UserInformation.find_by_name(params[:user_name])
     @note = NoteInfo.where(:user_id => @user[:name]).order(updated_at: :desc)
   end
 

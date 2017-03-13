@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post 'note_info/add_note' => 'note_info#add_note'
   post 'note_info/update_note' => 'note_info#update_note'
   get 'note_info/del_note'
-  get 'note_info/get_note'
+  get 'note_info/get_note' => 'note_info#get_note'
   get 'note_info/index'
   get 'note_info/user_note'
 

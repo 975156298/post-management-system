@@ -24,7 +24,7 @@
       </div>
     </div>
     <% @note.each do |note| %>
-    <div class="user_note" onclick="get_note_id(<%= note[:id] %>)">
+    <div class="user_note" onclick="jump_page('/note_info/get_note?note_id=<%= note[:id] %>')">
       <img src="<%= note[:note_photo] %>">
       <span><%= note[:content].length < 13 ? note[:content] : note[:content].slice(0,10) + '......'%></span>
       <span style="float: right"><%= note[:updated_at].to_s.slice(5,11)%></span>
