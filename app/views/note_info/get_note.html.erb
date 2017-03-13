@@ -8,7 +8,7 @@
 <div style="text-align: center;color: #ffffff;">
   <div class="currency_frame" style="padding-bottom: 35px">
     <div class="note_fram">
-      <div class="head_info_fram">
+      <div class="head_info_fram" onclick="jump_page('/main/get_user_info?user_name=<%= @note_user_info.name %>')">
         <img src="<%= @note_user_info.user_image %>" class="head_image">
         <div  class="" onclick="">
           <span class="left"><%= @note_user_info.name %></span>

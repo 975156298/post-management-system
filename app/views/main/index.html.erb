@@ -14,7 +14,7 @@
     <% end %>
     <% @get_notes.each do |get_note| %>
         <div class="note_fram">
-          <div class="head_info_fram" onclick="jump_page('/get_user?user_name=<%= get_note[1].name %>')">
+          <div class="head_info_fram" onclick="jump_page('/main/get_user_info?user_name=<%= get_note[1].name %>')">
             <img src="<%= get_note[1].user_image %>" class="head_image">
             <div>
               <span class="left"><%= get_note[1].name %></span>

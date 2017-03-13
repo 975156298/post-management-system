@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   post 'user_center/add_image' => 'user_center#add_image'
 
   get 'main/index'
-  get '/get_user' => 'main#get_user'
+  get 'main/get_user_info'
 
-  post '/add_note' => 'main#add_note'
+  post '/main/add_note' => 'main#add_note'
 
   root 'land#index'
   get 'land/register'

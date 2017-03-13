@@ -7,7 +7,7 @@
       <% @note_info.each do |note_info| %>
 
           <div class="note_fram">
-            <div class="comment_user_info" onclick="jump_page('/get_user?user_name=<%= note_info[2].name %>')">
+            <div class="comment_user_info" onclick="jump_page('/main/get_user_info?user_name=<%= note_info[2].name %>')">
               <img src="<%= note_info[2].user_image %>">
               <span><%= note_info[2].name %></span>
               <br>

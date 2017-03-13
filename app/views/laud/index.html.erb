@@ -7,7 +7,7 @@
   <div class="currency_frame">
     <% @laud_info.each_with_index do |laud_info,index| %>
         <div class="note_fram" style="color: #ffffff;">
-          <div class="comment_user_info" onclick="jump_page('/get_user?user_name=<%= laud_info[1].name %>')">
+          <div class="comment_user_info" onclick="jump_page('/main/get_user_info?user_name=<%= laud_info[1].name %>')">
             <img src="<%= laud_info[1].user_image %>">
             <span><%= laud_info[1].name %></span> 攒了
             <br>
