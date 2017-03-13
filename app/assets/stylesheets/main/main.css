@@ -111,3 +111,16 @@
     color: #ffffff;
     font-size: 20px;
 }
+
+.page_button{
+    position: fixed;
+    bottom: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #ffffff;
+    border: 0;
+    width: 100px;
+    line-height: 30px;
+    font-size: 18px;
+    padding: 0;
+}

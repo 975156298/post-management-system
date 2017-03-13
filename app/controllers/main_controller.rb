@@ -2,7 +2,17 @@ class MainController < ApplicationController
   before_action :check_cookies, only: [:get_user,:add_note]
   before_action :check_user_name, only: [:get_user,:add_note]
   def index
-    @get_note = NoteInfo.all.order(updated_at: :desc)
+    @page_num = params[:page].to_i
+    @next_page = '下一页'
+    @up_page = '上一页'
+    if  params[:page].to_i == 1
+      @up_page = '首页'
+    end
+    if params[:page].to_i == (NoteInfo.count() / 2.0).ceil
+      @next_page = '尾页'
+    end
+    p (NoteInfo.count() / 2.0).ceil
+    @get_note = NoteInfo.page(params[:page]).per(2).order(updated_at: :desc)
     @get_notes = []
     for notes in @get_note
       laud = []
@@ -20,6 +30,7 @@ class MainController < ApplicationController
       @get_notes.push(users_info)
     end
     @get_notes
+
   end
 
 

@@ -12,6 +12,7 @@
         </div>
         <%= button_tag "上传",:class =>'upload',:onclick => 'upload_button()'%>
     <% end %>
+    <!--<button onclick="jump_page('/main/index?k=2')"></button>-->
     <% @get_notes.each do |get_note| %>
         <div class="note_fram">
           <div class="head_info_fram" onclick="jump_page('/main/get_user_info?user_name=<%= get_note[1].name %>')">
@@ -48,5 +49,7 @@
         </div>
     <% end %>
   </div>
+  <button class="page_button" style="left: 354px;display: <%= @up_page == '首页'? 'none' : 'block' %>" onclick="jump_page('/main/index?page='+(<%= @page_num.to_i %> -1))"><%= @up_page %></button>
+  <button class="page_button" style="right: 220px;display: <%= @next_page == '尾页'? 'none' : 'block' %>" onclick="jump_page('/main/index?page='+ (<%= @page_num.to_i %> + 1))"><%= @next_page %></button>
 </div>
 </body>
