@@ -10,6 +10,7 @@ class LaudController < ApplicationController
       for laud in @laud
         laud.update(:is_read => true)
         user_info.push(UserInformation.find_by_name(laud.user_name))
+        user_info.push(laud.created_at)
         @laud_info.push(user_info)
       end
     end

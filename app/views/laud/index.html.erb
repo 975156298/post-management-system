@@ -11,7 +11,7 @@
             <img src="<%= laud_info[1].user_image %>">
             <span><%= laud_info[1].name %></span> 攒了
             <br>
-            <span><%= laud_info[1].created_at.to_s.slice(5,11) %></span>
+            <span><%= laud_info[2].to_s.slice(5,11) %></span>
           </div>
 
           <div class="comment_note_info" onclick="jump_page('/note_info/get_note?note_id=<%= laud_info[0].id %>')">

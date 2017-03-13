@@ -9,9 +9,9 @@
           <div class="note_fram">
             <div class="comment_user_info" onclick="jump_page('/main/get_user_info?user_name=<%= note_info[2].name %>')">
               <img src="<%= note_info[2].user_image %>">
-              <span><%= note_info[2].name %></span>
+              <span><%= note_info[2].name %> </span>回复
               <br>
-              <span><%= note_info[2].created_at.to_s.slice(5,11) %></span>
+              <span><%= note_info[0].created_at.to_s.slice(5,11) %></span>
             </div>
 
             <div class="comment_note_info" onclick="jump_page('/note_info/get_note?note_id=<%= note_info[1].id %>')">
