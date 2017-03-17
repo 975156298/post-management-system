@@ -21,7 +21,7 @@ function get_comment_(id,num,to_user_id){
                 console.log(data);
                 $('#comment'+num).val('');
                 show_warn_model('评论成功','true');
-                jump_page('/note_info/get_note')
+                jump_page('/note_info/get_note?note_id=' + id)
             },function(){}
         );
     }else{

@@ -37,8 +37,8 @@
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
           </div>
-          <div class="comment_fram" onclick="laud(<%= get_note[0].id %>)">
-            <div  class="margin-right-20 icon_fram">
+          <div class="comment_fram" >
+            <div  class="margin-right-20 icon_fram" onclick="laud(<%= get_note[0].id %>)">
               <span id="laud<%= get_note[0].id %>"><%= get_note[2][1] %></span>
               (<span id="favor<%= get_note[0].id %>"><%= get_note[2][0] %></span>)
             </div>
