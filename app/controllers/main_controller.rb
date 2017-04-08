@@ -15,13 +15,13 @@ class MainController < ApplicationController
       @get_note = NoteInfo.page(params[:page]).per(5)
     end
     if params[:sort_mode].to_i == 1
-      @get_note = NoteInfo.page(params[:page]).per(5).order(updated_at: :asc)
+      @get_note = NoteInfo.all.order(created_at: :desc).page(params[:page]).per(5)
     end
     if params[:sort_mode].to_i == 2
-      @get_note = NoteInfo.page(params[:page]).per(5).order(laud_num: :asc)
+      @get_note = NoteInfo.all.order(laud_num: :asc, created_at: :desc).page(params[:page]).per(5)
     end
     if params[:sort_mode].to_i == 3
-      @get_note = NoteInfo.page(params[:page]).per(5).order(laud_num: :desc)
+      @get_note = NoteInfo.all.order(laud_num: :desc, created_at: :desc).page(params[:page]).per(5)
     end
 
     @get_notes = []
@@ -40,6 +40,7 @@ class MainController < ApplicationController
       users_info.push(laud)
       @get_notes.push(users_info)
     end
+    @sort_mode = params[:sort_mode]
     @get_notes
 
   end
@@ -53,7 +54,7 @@ class MainController < ApplicationController
       @user_info = UserInformation.find_by_user(cookies[:user])
       up_file
       if NoteInfo.new(:user_id => @user_info.name,:content => @content,:note_photo => @myfile.url,:laud_num => 0).save
-        redirect_to '/main/index'
+        redirect_to '/main/index?sort_mode=1'
       end
     end
   end

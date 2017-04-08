@@ -55,7 +55,7 @@
         </div>
     <% end %>
   </div>
-  <button class="page_button" style="left: 354px;display: <%= @up_page == '首页'? 'none' : 'block' %>" onclick="jump_page('/main/index?page='+(<%= @page_num.to_i %> -1))"><%= @up_page %></button>
-  <button class="page_button" style="right: 220px;display: <%= @next_page == '尾页'? 'none' : 'block' %>" onclick="jump_page('/main/index?page='+ (<%= @page_num.to_i %> + 1))"><%= @next_page %></button>
+  <button class="page_button" style="left: 354px;display: <%= @up_page == '首页'? 'none' : 'block' %>" onclick="jump_page('/main/index?sort_mode='+(<%= @sort_mode %>)+'&page='+(<%= @page_num.to_i %> -1)) "><%= @up_page %></button>
+  <button class="page_button" style="right: 220px;display: <%= @next_page == '尾页'? 'none' : 'block' %>" onclick="jump_page('/main/index?sort_mode='+(<%= @sort_mode %>)+'&page='+ (<%= @page_num.to_i %> + 1))"><%= @next_page %></button>
 </div>
 </body>
