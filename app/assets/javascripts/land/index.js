@@ -68,3 +68,11 @@ function land(){
         })
 }
 
+function cancel_register(){
+    if(get_cookies(' user') != undefined ){
+        jump_page('/main/index?sort_mode=1&page=1')
+    }else{
+        jump_page('/')
+    }
+}
+

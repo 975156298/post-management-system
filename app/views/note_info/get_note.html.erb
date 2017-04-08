@@ -50,7 +50,7 @@
               </div>
             </div>
             <div  onfocusout="change()" style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram<%= index %>" class="comment_input_fram">
-              <textarea  style="width: 430px;" id="comment<%= index %>" rows="3" ></textarea>
+              <textarea  style="width: 430px;" id="comment<%= index %>" rows="3" placeholder="回复<%= index+1 %>楼："></textarea>
               <button onclick="get_comment_(<%= @get_note.id %>,<%= index %>,'<%= comment[1].name %>')">回复</button>
             </div>
         <% end %>
@@ -59,7 +59,7 @@
     <div  id="change_comment_fram" style="text-align: left" >
       <button id="comment_button" class="confirm_button" style="background-color: #5f616d" onclick="show_comment_fram(<%= @get_note.id %>)">回复</button>
       <div  onfocusout="change()" style="position: fixed;bottom: 5px;margin: 0;height: 50px;" id="comment_input_fram" class="comment_input_fram">
-        <textarea  style="width: 430px;" id="comment-1" rows="3" ></textarea>
+        <textarea  style="width: 430px;" id="comment-1" rows="3" placeholder="回复帖子："></textarea>
         <button onclick="get_comment_(<%= @get_note.id %>,-1,'<%= @note_user_info.name %>')">回复</button>
       </div>
     </div>
