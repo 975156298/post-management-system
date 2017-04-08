@@ -41,8 +41,7 @@ class NoteInfoController < ApplicationController
     note = NoteInfo.find_by_id(params[:note_id])
     p note
     if note
-      up_file
-      note.update(:content => params[:text],:note_photo => @myfile.url)
+      note.update(:content => params[:text])
       return render :json => {status: 200}
     end
     render :json => {status: 'fail'}

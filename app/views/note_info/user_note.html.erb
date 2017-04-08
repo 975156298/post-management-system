@@ -9,6 +9,7 @@
         <div class="note_fram">
           <div class="head_info_fram">
             <a class="delete_button" onclick="delete_note(<%= get_note[0].id %>)">删除</a>
+            <a class="delete_button" onclick="edit_note(<%= get_note[0].id %>)">编辑</a>
             <img src="<%= get_note[1].user_image %>" class="head_image">
             <div  class="" onclick="">
               <span class="left"><%= get_note[1].name %></span>
@@ -23,6 +24,15 @@
           <div class="" onclick="jump_page('/note_info/get_note?note_id=<%= get_note[0].id %>')">
             <p class="note_content"><%= get_note[0].content %></p>
             <img class="note_image " src="<%= get_note[0].note_photo %>">
+          </div>
+
+
+          <div id="edit_note<%= get_note[0].id %>" class="edit_note" >
+            <div class="edit_note_fram">
+              <textarea id="text<%= get_note[0].id %>" rows="3" ><%= get_note[0].content %></textarea>
+              <button onclick="confirm_edit_note(<%= get_note[0].id %>)">确定</button>
+              <button onclick="cancel(<%= get_note[0].id %>)">取消</button>
+            </div>
           </div>
 
         </div>

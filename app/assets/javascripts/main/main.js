@@ -13,6 +13,20 @@ function delete_note(id){
     )
 }
 
+function edit_note(id){
+    $('#edit_note'+id).show()
+}
+
+function cancel(id){
+    $('#edit_note'+id).hide()
+}
+
+function confirm_edit_note(id){
+    post_ajax('note_info/update_note',{note_id: id,text: $('#text'+id).val()},function(data){
+       jump_page('/note_info/user_note');
+    },function(){})
+}
+
 function get_comment_fram(id){
     console.log('-------------')
     console.log('#comment_input_fram'+id)

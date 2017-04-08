@@ -39,9 +39,42 @@
 }
 .delete_button{
     float: right;
-    margin: 10px 20px;
-    width: 100px;
+    margin: 10px 30px 10px 0;
+    width: 50px;
     line-height: 30px;
     border-radius: 10px;
 
+}
+
+.edit_note{
+    display: none;
+    background-color: rgba(120,120,120,0.5);
+    background-size: cover;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.edit_note_fram{
+    position: fixed;
+    top: 30%;
+    left: 55%;
+    width: 400px;
+    margin-left: -200px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.edit_note_fram textarea{
+    float: left;
+    width: 360px;
+    margin: 10px 20px;
+}
+
+.edit_note_fram button{
+    width: 150px;
+    line-height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
