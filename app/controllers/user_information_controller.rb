@@ -30,6 +30,14 @@ class UserInformationController < ApplicationController
     render :json => {status: 'sss'}
   end
 
+  def update_password
+    user_info = UserInformation.find_by_user(cookies[:user])
+    if user_info
+      user_info.update({password: params[:password]})
+      return render :json => {status: 200}
+    end
+  end
+
   def delete_user
     UserInformation.find_by_user('zhuxuey').delete
     for note in NoteInfo.where(user_id: params[:user_id])

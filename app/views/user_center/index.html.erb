@@ -40,8 +40,8 @@
       </div>
       <span class="left margin-left-20">谁赞了我</span>
     </div>
-    <div class="block_frame" style="height: 50px;">
-      <span class="left margin-left-20">相册</span>
+    <div class="block_frame" style="height: 50px;" onclick="revise_psw()">
+      <span class="left margin-left-20">修改密码</span>
     </div>
     <div class="upload_image_fram">
       <div style="width: 200px;height: 35px;">
@@ -56,4 +56,25 @@
     </div>
   </div>
 </div>
+
+
+<div class="edit_note">
+  <div class="edit_note_fram" style="height: 200px;">
+    <div style="margin-top: 15px;">
+      <div>
+        <label for="psw">新密码</label>
+        <input id="psw" type="password" placeholder="新密码"/>
+      </div>
+      <div>
+        <label for="re_psw">重复新密码</label>
+        <input id="re_psw" type="password" placeholder="重复新密码"/>
+      </div>
+
+      <button onclick="confirm_revise_pas()">确定</button>
+      <button onclick="cancel()">取消</button>
+    </div>
+  </div>
+
+</div>
+
 </body>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "user_information/get_user_info"
   get 'user_information/get_all_user'
   post 'user_information/update' => 'user_information#update'
+  post 'user_information/update_password' => 'user_information#update_password'
 
 
   get 'user_center/index'
