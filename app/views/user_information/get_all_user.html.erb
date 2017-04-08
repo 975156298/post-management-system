@@ -1,0 +1,31 @@
+<%= javascript_include_tag 'admin.js' %>
+<%= stylesheet_link_tag 'admin.css' %>
+<table>
+  <tr>
+    <th>id</th>
+    <th>登录号</th>
+    <th>用户名</th>
+    <th>密码</th>
+    <th>邮箱</th>
+    <th>性别</th>
+    <th>创建时间</th>
+    <th>修改时间</th>
+    <th>操作</th>
+  </tr>
+  <% @user_all.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.user %></td>
+        <td><%= user.name %></td>
+        <td><%= user.password %></td>
+        <td><%= user.email %></td>
+        <td><%= user.sex %></td>
+        <td><%= user.created_at.to_s.slice(0,10) %></td>
+        <td><%= user.updated_at.to_s.slice(0,10) %></td>
+        <td><a href="#" onclick="delete_user(<%= user.id %>)">删除</a> </td>
+      </tr>
+  <% end %>
+</table>
+
+
+

@@ -11,7 +11,7 @@ class UserInformationController < ApplicationController
 
   def get_all_user
     @user_all = UserInformation.all
-    render :json => {data: @user_all}
+    # render :json => {data: @user_all}
   end
 
   def get_user_info
@@ -39,10 +39,19 @@ class UserInformationController < ApplicationController
   end
 
   def delete_user
-    UserInformation.find_by_user('zhuxuey').delete
-    for note in NoteInfo.where(user_id: params[:user_id])
+    user = UserInformation.find_by_id(params[:user_id])
+    note = NoteInfo.where(user_id: user.name)
+    for note in note
+      for comment in Comment.where(comment_note_id: note.id)
+        comment.delete
+      end
+      for laud in Laud.where(:note_id => note.id)
+        laud.delete
+      end
       note.delete
     end
+    user.delete
+   render :json => {status: 200}
   end
 
   private
