@@ -1,6 +1,8 @@
 <%= javascript_include_tag 'admin.js' %>
 <%= stylesheet_link_tag 'admin.css' %>
+<%= render 'user_information/admin_head' %>
 <table>
+  <thead>
   <tr>
     <th>id</th>
     <th>登录号</th>
@@ -12,7 +14,9 @@
     <th>修改时间</th>
     <th>操作</th>
   </tr>
+  </thead>
   <% @user_all.each do |user| %>
+      <tbody>
       <tr>
         <td><%= user.id %></td>
         <td><%= user.user %></td>
@@ -22,8 +26,21 @@
         <td><%= user.sex %></td>
         <td><%= user.created_at.to_s.slice(0,10) %></td>
         <td><%= user.updated_at.to_s.slice(0,10) %></td>
-        <td><a href="#" onclick="delete_user(<%= user.id %>)">删除</a> </td>
+        <td><a id="delete_user"  onclick="delete_user(<%= user.id %>)">删除</a> </td>
       </tr>
+      </tbody>
+
+      <div id="edit_note<%= user.id %>" class="edit_note" >
+        <div class="edit_note_fram">
+          <div style="margin: 20px 10px">
+            <label for="text<%= user.id %>">输入密码</label>
+            <input id="text<%= user.id %>" type="password" autofocus/>
+          </div>
+          <button onclick="confirm_delete(<%= user.id %>)">确定</button>
+          <button onclick="cancel(<%= user.id %>)">取消</button>
+        </div>
+      </div>
+
   <% end %>
 </table>
 

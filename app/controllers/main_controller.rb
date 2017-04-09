@@ -5,10 +5,10 @@ class MainController < ApplicationController
     @page_num = params[:page].to_i
     @next_page = '下一页'
     @up_page = '上一页'
-    if  params[:page].to_i == 1
+    if  params[:page].to_i <= 1
       @up_page = '首页'
     end
-    if params[:page].to_i == (NoteInfo.count() / 5.0).ceil
+    if params[:page].to_i >= (NoteInfo.count() / 5.0).ceil
       @next_page = '尾页'
     end
     if params[:sort_mode].to_i == 0
@@ -54,7 +54,7 @@ class MainController < ApplicationController
       @user_info = UserInformation.find_by_user(cookies[:user])
       up_file
       if NoteInfo.new(:user_id => @user_info.name,:content => @content,:note_photo => @myfile.url,:laud_num => 0).save
-        redirect_to '/main/index?sort_mode=1'
+        redirect_to '/main/index?sort_mode=1&page=1'
       end
     end
   end

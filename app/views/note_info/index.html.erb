@@ -1,6 +1,42 @@
+<%= javascript_include_tag 'admin.js' %>
+<%= stylesheet_link_tag 'admin.css' %>
+<%= render 'user_information/admin_head' %>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>登录号</th>
+    <th>内容</th>
+    <th>赞数</th>
+    <th>图片</th>
+    <th>创建时间</th>
+    <th>修改时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <% @get_note.each do |note| %>
+      <tbody>
+      <tr>
+        <td><%= note.id %></td>
+        <td><%= note.user_id %></td>
+        <td><%= note.content %></td>
+        <td><%= note.laud_num %></td>
+        <td><%= note.note_photo %></td>
+        <td><%= note.created_at.to_s.slice(0,10) %></td>
+        <td><%= note.updated_at.to_s.slice(0,10) %></td>
+        <td><a id="delete_user"  onclick="delete_user(<%= note.id %>)">删除</a> </td>
+      </tr>
+      </tbody>
 
-<%= form_tag 'add_note', :multipart => true do%>
-    <%= text_field_tag :text %>
-    <%= file_field_tag :localfile %>
-    <%= submit_tag "上传"%>
-<% end %>
+      <div id="edit_note<%= note.id %>" class="edit_note" >
+        <div class="edit_note_fram">
+          <div style="margin: 20px 10px;line-height: 60px;height: 60px;text-align: center;">
+            <span>确定删除帖子吗？</span>
+          </div>
+          <button onclick="confirm_delete_note(<%= note.id %>)">确定</button>
+          <button onclick="cancel(<%= note.id %>)">取消</button>
+        </div>
+      </div>
+
+  <% end %>
+</table>

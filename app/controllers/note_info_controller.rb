@@ -2,6 +2,7 @@ class NoteInfoController < ApplicationController
   before_action :check_cookies
   before_action :check_user_name
   def index
+    @get_note = NoteInfo.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def get_note
@@ -55,7 +56,7 @@ class NoteInfoController < ApplicationController
     for laud in Laud.where(:note_id => params[:note_id])
       laud.delete
     end
-
+    render :json =>{status: 200}
   end
 
   def user_note

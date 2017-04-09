@@ -28,6 +28,15 @@ table tr. td
     background-color:#EAF2D3;
 }
 
-a {
-    text-decoration: none;color: red
+#delete_user {
+    text-decoration: none;
+    color: red
+}
+
+.admin-head{
+    margin: 10px 20px;
+}
+.admin-head a{
+    text-decoration: none;
+    margin: 0 30px;
 }

@@ -62,10 +62,7 @@ function get_comment(id,to_user_id){
 }
 
 function upload_button(){
-    console.log($('#note_content').val())
-    console.log($('#note_image').val())
     if( $('#note_content').val().length <= 0 || $('#note_image').val().length <= 0){
-        console.log('333333333333')
         show_warn_model('请输入内容和插入图片','true')
     }
 
