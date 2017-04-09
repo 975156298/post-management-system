@@ -49,3 +49,12 @@ function page_jump(total,url){
         show_warn_model('输入数字超出范围','true')
     }
 }
+
+function search_note(url){
+    if($('#search_val').val() != ''){
+        jump_page(url + '?page=1&search=' + $('#search_val').val())
+    }else{
+        show_warn_model('输入不能为空','true')
+    }
+
+}

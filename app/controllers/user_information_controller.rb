@@ -13,6 +13,11 @@ class UserInformationController < ApplicationController
     @current_page = params[:page]
     @total_page = (UserInformation.count/10.0).ceil
     @user_all = UserInformation.all.order(created_at: :desc).page(params[:page]).per(10)
+    if(params[:search] == nil)
+      @user_all = UserInformation.all.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @user_all = UserInformation.where(name: params[:search]).order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def get_user_info
@@ -22,8 +27,6 @@ class UserInformationController < ApplicationController
 
   def update
     user_info = UserInformation.find_by_user(cookies[:user])
-    p "-----------------user"
-    p user_info
     if user_info
       user_info.update(update_info)
       return render :json => {status: 200}

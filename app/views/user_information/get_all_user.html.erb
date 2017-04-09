@@ -1,6 +1,11 @@
 <%= javascript_include_tag 'admin.js' %>
 <%= stylesheet_link_tag 'admin.css' %>
 <%= render 'user_information/admin_head' %>
+<div class="search_iframe">
+  <label>用户名</label>
+  <input type="text" id="search_val" />
+  <button onclick="search_note('/user_information/get_all_user')">搜索</button>
+</div>
 <table>
   <thead>
   <tr>

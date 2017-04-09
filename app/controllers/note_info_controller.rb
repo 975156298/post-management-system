@@ -4,7 +4,11 @@ class NoteInfoController < ApplicationController
   def index
     @current_page = params[:page]
     @total_page = (NoteInfo.count/10.0).ceil
-    @get_note = NoteInfo.all.order(created_at: :desc).page(params[:page]).per(10)
+    if(params[:search] == nil)
+      @get_note = NoteInfo.all.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @get_note = NoteInfo.where(user_id: params[:search]).order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def get_note

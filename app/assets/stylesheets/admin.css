@@ -75,3 +75,23 @@ table tr td a:hover{
     width: 800px;
     height: 500px;
 }
+
+.search_iframe{
+    height: 40px;
+    line-height: 40px;
+    float: right;
+    margin-right: 100px;
+}
+
+.search_iframe input{
+    line-height: 20px;
+}
+
+.search_iframe button{
+    width: 80px;
+    line-height: 30px;
+    background-color: #98bf21;
+    color: #ffffff;
+    border-radius: 7px;
+    border: 0;
+}
