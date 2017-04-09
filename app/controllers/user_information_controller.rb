@@ -10,8 +10,9 @@ class UserInformationController < ApplicationController
   end
 
   def get_all_user
-    @user_all = UserInformation.all
-    # render :json => {data: @user_all}
+    @current_page = params[:page]
+    @total_page = (UserInformation.count/10.0).ceil
+    @user_all = UserInformation.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def get_user_info

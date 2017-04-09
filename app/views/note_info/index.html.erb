@@ -18,10 +18,10 @@
       <tbody>
       <tr>
         <td><%= note.id %></td>
-        <td><%= note.user_id %></td>
-        <td><%= note.content %></td>
+        <td style="width: 100px"><%= note.user_id %></td>
+        <td style="width: 300px;"><%= note.content %></td>
         <td><%= note.laud_num %></td>
-        <td><%= note.note_photo %></td>
+        <td style="width:200px"><a onclick="show_photo(<%= note.id %>)"><%= note.note_photo.to_s.slice(0,20) + '...'%></a></td>
         <td><%= note.created_at.to_s.slice(0,10) %></td>
         <td><%= note.updated_at.to_s.slice(0,10) %></td>
         <td><a id="delete_user"  onclick="delete_user(<%= note.id %>)">删除</a> </td>
@@ -38,5 +38,21 @@
         </div>
       </div>
 
+      <div id="edit_note_image<%= note.id %>" class="edit_note" ondblclick="hide_photo(<%= note.id %>)">
+        <div class="image_show" >
+          <img src="<%= note.note_photo %>" />
+        </div>
+      </div>
   <% end %>
+</table>
+<table id="page">
+  <tr>
+    <td><a href="/note_info/index?page=1" style="color: <%= @current_page.to_i == 1 ? "#141315" : '#98bf21'%>">首页</a></td>
+    <td><a href="/note_info/index?page=<%= @current_page.to_i >1 ? (@current_page.to_i) - 1 : @current_page.to_i %>" style="color: <%= @current_page.to_i == 1 ? "#141315" : '#98bf21'%>" >上一页</a></td>
+    <td>第<input id="jump_page" type="text"  value="<%= @current_page %>" onblur="page_jump(<%= @total_page %>,'/note_info/index')"/>页</td>
+    <td><span>共</span></td>
+    <td><%= @total_page %></td>
+    <td><a href="/note_info/index?page=<%= @current_page.to_i < @total_page ? (@current_page.to_i) + 1 : @current_page.to_i %>" style="color: <%= @current_page.to_i == @total_page ? "#141315" : '#98bf21'%>" >下一页</a></td>
+    <td><a href="/note_info/index?page=<%= @total_page %>" style="color: <%= @current_page.to_i == @total_page ? "#141315" : '#98bf21'%>">尾页</a></td>
+  </tr>
 </table>

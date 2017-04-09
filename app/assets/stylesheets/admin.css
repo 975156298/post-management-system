@@ -27,6 +27,9 @@ table tr. td
     color:#000000;
     background-color:#EAF2D3;
 }
+table tr td a:hover{
+    color: #98bf21;
+}
 
 #delete_user {
     text-decoration: none;
@@ -39,4 +42,36 @@ table tr. td
 .admin-head a{
     text-decoration: none;
     margin: 0 30px;
+}
+
+#page tr td{
+    width: 14%;
+    text-align: center;
+    color: #98bf21;
+}
+
+#page tr td a{
+    text-decoration: none;
+    color: #98bf21;
+}
+
+#page tr td a:active{
+    color: #B00100;
+}
+#page tr td input{
+    width: 40px;
+}
+.image_show{
+    position: fixed;
+    top: 30px;
+    left: 55%;
+    width: 800px;
+    margin-left: -400px;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+.image_show img{
+    width: 800px;
+    height: 500px;
 }

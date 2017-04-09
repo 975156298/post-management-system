@@ -31,3 +31,21 @@ function confirm_delete_note(id){
 function cancel(id){
     $("#edit_note"+id).hide();
 }
+
+function show_photo(id){
+    $('#edit_note_image'+id).show();
+}
+
+function hide_photo(id){
+    $('#edit_note_image'+id).hide();
+}
+
+function page_jump(total,url){
+    console.log(parseInt($('#jump_page').val()))
+    if(parseInt($('#jump_page').val()) >=1 && parseInt($('#jump_page').val()) <= total ){
+        console.log('222')
+        jump_page(url + '?page=' + parseInt($('#jump_page').val()))
+    }else{
+        show_warn_model('输入数字超出范围','true')
+    }
+}

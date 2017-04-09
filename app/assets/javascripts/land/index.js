@@ -52,7 +52,7 @@ function land(){
         'password': $('#pad').val()
     };
     if($('#user_name').val() == 'admin' && $('#pad').val() == 'huangzuomin'){
-        jump_page('/user_information/get_all_user');
+        jump_page('/user_information/get_all_user?page=1');
     }else{
         get_ajax(url,data,
             function(data){

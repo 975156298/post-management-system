@@ -40,8 +40,18 @@
           <button onclick="cancel(<%= user.id %>)">取消</button>
         </div>
       </div>
-
   <% end %>
+</table>
+<table id="page">
+  <tr>
+    <td><a href="/user_information/get_all_user?page=1" style="color: <%= @current_page.to_i == 1 ? "#141315" : '#98bf21'%>">首页</a></td>
+    <td><a href="/user_information/get_all_user?page=<%= @current_page.to_i >1 ? (@current_page.to_i) - 1 : @current_page.to_i %>" style="color: <%= @current_page.to_i == 1 ? "#141315" : '#98bf21'%>" >上一页</a></td>
+    <td>第<input id="jump_page" type="text"  value="<%= @current_page %>" onblur="page_jump(<%= @total_page %>,'/user_information/get_all_user')"/>页</td>
+    <td><span>共</span></td>
+    <td><%= @total_page %></td>
+    <td><a href="/user_information/get_all_user?page=<%= @current_page.to_i < @total_page ? (@current_page.to_i) + 1 : @current_page.to_i %>" style="color: <%= @current_page.to_i == @total_page ? "#141315" : '#98bf21'%>" >下一页</a></td>
+    <td><a href="/user_information/get_all_user?page=<%= @total_page %>" style="color: <%= @current_page.to_i == @total_page ? "#141315" : '#98bf21'%>">尾页</a></td>
+  </tr>
 </table>
 
 

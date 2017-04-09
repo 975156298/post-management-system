@@ -2,6 +2,8 @@ class NoteInfoController < ApplicationController
   before_action :check_cookies
   before_action :check_user_name
   def index
+    @current_page = params[:page]
+    @total_page = (NoteInfo.count/10.0).ceil
     @get_note = NoteInfo.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
