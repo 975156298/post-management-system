@@ -73,7 +73,7 @@ function laud(id){
     get_ajax('/laud/get_user_laud',{note_id: id},function(data){
         if(data.data.length > 0){
             for(var i in data.data){
-                if(data.data[i].user_name == get_cookies(' name')){
+                if(data.data[i].user_name == decodeURIComponent(get_cookies(' name'))){
                     status = false;
                     post_ajax('/laud/delete_laud',{note_id: id,laud_id: data.data[i].id},function(data){
                         $('#laud'+id).text('赞')
