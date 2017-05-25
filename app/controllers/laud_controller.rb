@@ -1,5 +1,5 @@
 class LaudController < ApplicationController
-
+  before_action :check_cookies
   def index
     @laud_info = []
     @note_infos = NoteInfo.where({:user_id => get_user.name})

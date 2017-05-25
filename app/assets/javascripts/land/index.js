@@ -46,13 +46,25 @@ function save_user_info(){
 }
 
 function land(){
+    stop_time()
     var url = '/land/land';
     var data = {
         'user': $('#user_name').val(),
         'password': $('#pad').val()
     };
-    if($('#user_name').val() == 'admin' && $('#pad').val() == 'huangzuomin'){
-        jump_page('/user_information/get_all_user?page=1');
+
+    if($('#user_name').val().substring(0,5) == 'admin'){
+        get_ajax('/admin/get_admin',data,
+            function(data){
+                if(data.status == 200){
+                    show_warn_model('登录成功');
+                    jump_page('/user_information/get_all_user?page=1');
+                }else{
+                    show_warn_model('密码不正确');
+                    jump_page('/')
+                }
+            }
+        )
     }else{
         get_ajax(url,data,
             function(data){
@@ -62,8 +74,10 @@ function land(){
                         jump_page('/user_information/index')
                     }else{
                         jump_page('/main/index?sort_mode=1&page=1');
-
                     }
+                }else{
+                    show_warn_model('密码不正确');
+                    jump_page('/')
                 }
             },
             function(){

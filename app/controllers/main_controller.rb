@@ -42,7 +42,6 @@ class MainController < ApplicationController
     end
     @sort_mode = params[:sort_mode]
     @get_notes
-
   end
 
 

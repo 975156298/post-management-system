@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   post 'laud/add_laud'
   post 'laud/delete_laud'
 
+  get 'admin/get_admin'
+  post 'admin/add_admin'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

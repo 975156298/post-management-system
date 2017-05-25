@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def check_cookies
-    if cookies[:user].blank?
+    if (cookies[:user])[0,5] == "admin"
+      redirect_to '/'
+    end
+  end
+
+  def check_admin_cookies
+    if (cookies[:user])[0,5] != "admin"
       redirect_to '/'
     end
   end

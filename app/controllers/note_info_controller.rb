@@ -1,6 +1,7 @@
 class NoteInfoController < ApplicationController
-  before_action :check_cookies
-  before_action :check_user_name
+  before_action :check_cookies, only: [:get_note, :add_note, :update_note, :del_note, :user_note]
+  before_action :check_user_name, only: [:get_note, :add_note, :update_note, :del_note, :user_note]
+  before_action :check_admin_cookies, only: :index
   def index
     @current_page = params[:page]
     @total_page = (NoteInfo.count/10.0).ceil

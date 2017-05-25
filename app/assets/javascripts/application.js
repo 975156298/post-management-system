@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 
-
 function post_ajax(url, data, suc_fun, err_fun) {
     $.ajax({
         url: "http://localhost:3000/"+url,

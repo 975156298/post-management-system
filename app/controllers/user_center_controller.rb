@@ -1,6 +1,7 @@
 class UserCenterController < ApplicationController
   before_action :check_cookies
   before_action :check_user_name
+
   def index
     @is_read = 'true'
     @user_info = get_user
