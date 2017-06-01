@@ -46,7 +46,6 @@ function save_user_info(){
 }
 
 function land(){
-    stop_time()
     var url = '/land/land';
     var data = {
         'user': $('#user_name').val(),
